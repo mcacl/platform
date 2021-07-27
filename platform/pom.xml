@@ -10,5 +10,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>platform-common</module>
+        <module>platform-manager</module>
     </modules>
 </project>
