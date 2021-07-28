@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>platform-applets-api</module>
+        <module>platform-applets-biz</module>
     </modules>
     
     <properties>
