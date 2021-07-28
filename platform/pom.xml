@@ -11,5 +11,7 @@
     <modules>
         <module>platform-common</module>
         <module>platform-manager</module>
+        <module>platform-applets</module>
+        <module>platform-getway</module>
     </modules>
 </project>
