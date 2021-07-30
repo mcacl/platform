@@ -14,4 +14,158 @@
         <module>platform-applets</module>
         <module>platform-getway</module>
     </modules>
+    <properties>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/cn.hutool/hutool-all -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.7.5</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.0-alpha2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-annotations -->
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>2.1.10</version>
+        </dependency>
+    </dependencies>
+    
+    <dependencyManagement>
+        <dependencies>
+            <!--网关-->
+            <!-- https://mvnrepository.com/artifact/com.github.xiaoymin/knife4j-micro-spring-boot-starter -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+                <version>3.0.3</version>
+            </dependency>
+            <!--boot监控-->
+            <!-- https://mvnrepository.com/artifact/de.codecentric/spring-boot-admin-dependencies -->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-dependencies</artifactId>
+                <version>2.4.3</version>
+                <type>pom</type>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.5.0</version>
+                <type>pom</type>
+                <scope>provided</scope>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.SR10</version>
+                <type>pom</type>
+                <scope>runtime</scope>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-alibaba-dependencies -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2021.1</version>
+                <type>pom</type>
+            </dependency>
+        
+        </dependencies>
+    </dependencyManagement>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>aliyun-plugin</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+    <repositories>
+        <repository>
+            <id>aliyun</id>
+            <name>aliyun</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
+    <build>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/application*.*</include>
+                    <include>**/bootstrap*.*</include>
+                </includes>
+            </resource>
+        </resources>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-remote-resources-plugin</artifactId>
+                    <version>2.6.0</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>process</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <profiles.active>dev</profiles.active>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <profiles.active>test</profiles.active>
+            </properties>
+        </profile>
+        <profile>
+            <id>publish</id>
+            <properties>
+                <profiles.active>publish</profiles.active>
+            </properties>
+        </profile>
+    </profiles>
 </project>
