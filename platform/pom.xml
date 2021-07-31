@@ -52,21 +52,20 @@
     <dependencyManagement>
         <dependencies>
             <!--网关-->
-            <!-- https://mvnrepository.com/artifact/com.github.xiaoymin/knife4j-aggregation-spring-boot-starter -->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-aggregation-spring-boot-starter</artifactId>
-                <version>2.0.8</version>
+                <version>2.0.9</version>
+                <type>jar.sha256</type>
             </dependency>
-            
             <!--boot监控-->
-            <!-- https://mvnrepository.com/artifact/de.codecentric/spring-boot-admin-dependencies -->
             <dependency>
                 <groupId>de.codecentric</groupId>
                 <artifactId>spring-boot-admin-dependencies</artifactId>
                 <version>2.4.3</version>
                 <type>pom</type>
             </dependency>
+            
             <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -75,22 +74,20 @@
                 <type>pom</type>
                 <scope>provided</scope>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR10</version>
+                <version>Hoxton.SR9</version>
                 <type>pom</type>
-                <scope>runtime</scope>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-alibaba-dependencies -->
+    
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
                 <version>2021.1</version>
                 <type>pom</type>
             </dependency>
-        
+
         </dependencies>
     </dependencyManagement>
     <pluginRepositories>
