@@ -52,12 +52,13 @@
     <dependencyManagement>
         <dependencies>
             <!--网关-->
-            <!-- https://mvnrepository.com/artifact/com.github.xiaoymin/knife4j-micro-spring-boot-starter -->
+            <!-- https://mvnrepository.com/artifact/com.github.xiaoymin/knife4j-aggregation-spring-boot-starter -->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
-                <version>3.0.3</version>
+                <artifactId>knife4j-aggregation-spring-boot-starter</artifactId>
+                <version>2.0.8</version>
             </dependency>
+            
             <!--boot监控-->
             <!-- https://mvnrepository.com/artifact/de.codecentric/spring-boot-admin-dependencies -->
             <dependency>
@@ -162,9 +163,9 @@
             </properties>
         </profile>
         <profile>
-            <id>publish</id>
+            <id>prod</id>
             <properties>
-                <profiles.active>publish</profiles.active>
+                <profiles.active>prod</profiles.active>
             </properties>
         </profile>
     </profiles>
