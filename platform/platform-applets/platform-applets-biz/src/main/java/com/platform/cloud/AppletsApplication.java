@@ -1,13 +1,13 @@
-package com.platform.platformgetway;
+package com.platform.cloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PlatformGetwayApplication{
+public class AppletsApplication{
 
     public static void main(String[] args){
-        SpringApplication.run(PlatformGetwayApplication.class,args);
+        SpringApplication.run(AppletsApplication.class,args);
     }
 
 }
