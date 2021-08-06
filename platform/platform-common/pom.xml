@@ -11,5 +11,7 @@
     <modules>
         <module>platform-common-verification</module>
         <module>platform-common-tools</module>
+        <module>platform-common-core</module>
+        <module>platform-common-provide</module>
     </modules>
 </project>
