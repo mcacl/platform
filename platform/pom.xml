@@ -20,6 +20,9 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring-boot.vsersion>2.5.0</spring-boot.vsersion>
+        <spring-cloud-alibaba>2021.1</spring-cloud-alibaba>
+        <knife4j.version>2.0.9</knife4j.version>
     </properties>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/cn.hutool/hutool-all -->
@@ -57,44 +60,47 @@
                 <artifactId>platform-common-dependences</artifactId>
                 <version>1.0-SNAPSHOT</version>
                 <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <!--网关-->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-aggregation-spring-boot-starter</artifactId>
-                <version>2.0.9</version>
+                <version>${knife4j.version}</version>
             </dependency>
-        
+            
             <!--boot监控-->
             <dependency>
                 <groupId>de.codecentric</groupId>
                 <artifactId>spring-boot-admin-dependencies</artifactId>
                 <version>2.4.3</version>
                 <type>pom</type>
+                <scope>import</scope>
             </dependency>
             
             <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.5.0</version>
+                <version>${spring-boot.vsersion}</version>
                 <type>pom</type>
-                <scope>provided</scope>
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR9</version>
+                <version>Hoxton.SR10</version>
                 <type>pom</type>
             </dependency>
-        
+            
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2021.1</version>
+                <version>${spring-cloud-alibaba}</version>
                 <type>pom</type>
+                <scope>import</scope>
             </dependency>
-    
+        
         </dependencies>
     </dependencyManagement>
     <pluginRepositories>
@@ -136,7 +142,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-remote-resources-plugin</artifactId>
-                    <version>2.6.0</version>
+                    <version>1.7.0</version>
                     <executions>
                         <execution>
                             <goals>

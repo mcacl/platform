@@ -11,6 +11,10 @@
     
     <artifactId>platform-common-provide</artifactId>
     
+    <properties>
+        <spring-boot-actuator>${spring-boot.vsersion}</spring-boot-actuator>
+        <spring-boot-web>${spring-boot.vsersion}</spring-boot-web>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.platform</groupId>
@@ -22,33 +26,33 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-            <!--        <version>2.5.3</version>-->
+            <version>${spring-boot-actuator}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <!--        <version>2.5.3</version>-->
+            <version>${spring-boot-web}</version>
         </dependency>
         <!--注册中心-->
         <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-nacos-discovery -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-            <!--            <version>2021.1</version>-->
+            <version>${spring-cloud-alibaba}</version>
         </dependency>
         <!--配置中心-->
         <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-nacos-config -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-            <!--            <version>2021.1</version>-->
+            <version>${spring-cloud-alibaba}</version>
         </dependency>
         <!--服务降级熔断-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-            <!--            <version>2021.1</version>-->
+            <version>${spring-cloud-alibaba}</version>
             <type>pom</type>
         </dependency>
         
@@ -57,9 +61,13 @@
             <artifactId>knife4j-spring-ui</artifactId>
         </dependency>-->
         <!--前端网关-->
-        <dependency>
+        <!--<dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
+        </dependency>-->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-aggregation-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 </project>

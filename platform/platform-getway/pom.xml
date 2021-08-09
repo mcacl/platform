@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>platform-getway</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    
     <description>platform网关</description>
     <name>platform-getway</name>
     <properties>
@@ -29,7 +29,10 @@
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-aggregation-spring-boot-starter</artifactId>
+<!--            <version>2.0.9</version>-->
+<!--            <type>pom</type>-->
         </dependency>
+
     </dependencies>
     <dependencyManagement>
         <dependencies>
