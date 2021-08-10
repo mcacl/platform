@@ -50,6 +50,7 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
+                <type>pom</type>
             </dependency>
             <!--驱动-->
             <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
@@ -73,7 +74,6 @@
                 <version>${swagger.version}</version>
             </dependency>
             <!--cglib-->
-            <!-- https://mvnrepository.com/artifact/cglib/cglib -->
             <dependency>
                 <groupId>cglib</groupId>
                 <artifactId>cglib</artifactId>

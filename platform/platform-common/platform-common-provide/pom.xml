@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     
     <artifactId>platform-common-provide</artifactId>
-    
+    <packaging>jar</packaging>
     <properties>
         <spring-boot-actuator>${spring-boot.vsersion}</spring-boot-actuator>
         <spring-boot-web>${spring-boot.vsersion}</spring-boot-web>
