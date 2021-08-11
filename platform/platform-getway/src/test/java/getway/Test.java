@@ -12,9 +12,7 @@ class Test{
 
     @org.junit.jupiter.api.Test
     void contextLoads(){
-        List<ApiKey> apiKeyList = new ArrayList<>();
-        apiKeyList.add(new ApiKey("Authorization","认证参数","header"));
-        return apiKeyList.stream().collect(Collectors.toList());
+
     }
 
 }

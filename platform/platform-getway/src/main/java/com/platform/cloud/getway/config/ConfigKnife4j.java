@@ -43,8 +43,9 @@ public class ConfigKnife4j{
     }
 
     private List<SecurityScheme> securitySchemes(){
-        List<ApiKey> apiKeyList = new ArrayList<>();
+        List<SecurityScheme> apiKeyList = new ArrayList<>();
         apiKeyList.add(new ApiKey("Authorization","认证参数","header"));
-        return apiKeyList.stream().collect(Collectors.toList());
+        //return apiKeyList.stream().collect(Collectors.toList());
+        return apiKeyList;
     }
 }
