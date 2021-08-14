@@ -10,17 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
     
     <artifactId>platform-common-provide</artifactId>
+    <description>提供者公共依赖</description>
     <packaging>jar</packaging>
     <properties>
         <spring-boot-actuator>${spring-boot.vsersion}</spring-boot-actuator>
         <spring-boot-web>${spring-boot.vsersion}</spring-boot-web>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>org.platform</groupId>
-            <artifactId>platform-common-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
         <!--监控 和boot admin配合用-->
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator -->
         <dependency>
@@ -34,6 +30,17 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${spring-boot-web}</version>
         </dependency>
+        <dependency>
+            <groupId>org.platform</groupId>
+            <artifactId>platform-common-data</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.platform</groupId>
+            <artifactId>platform-common-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

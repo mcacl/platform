@@ -20,6 +20,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        
+        <spring-cloud-dependencies>Hoxton.SR9</spring-cloud-dependencies>
         <spring-cloud.version>3.0.3</spring-cloud.version>
         <spring-boot.vsersion>2.5.0</spring-boot.vsersion>
         <spring-cloud-alibaba>2021.1</spring-cloud-alibaba>
@@ -63,7 +65,7 @@
                 <artifactId>platform-common-dependences</artifactId>
                 <version>1.0-SNAPSHOT</version>
                 <type>pom</type>
-<!--                <scope>import</scope>-->
+                <scope>import</scope>
             </dependency>
             <!--网关-->
             <dependency>
@@ -92,7 +94,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR10</version>
+                <version>${spring-cloud-dependencies}</version>
                 <type>pom</type>
             </dependency>
             <dependency>
@@ -106,11 +108,6 @@
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson-spring-boot-starter</artifactId>
                 <version>${redisson-spring-boot-starter}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-spring-boot-starter</artifactId>
-                <version>${knife4j.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -130,7 +127,7 @@
         <repository>
             <id>aliyun</id>
             <name>aliyun</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            <url>https://maven.aliyun.com/repository/public</url>
         </repository>
     </repositories>
     <build>
@@ -150,6 +147,18 @@
         </resources>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>2.5.3</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-remote-resources-plugin</artifactId>

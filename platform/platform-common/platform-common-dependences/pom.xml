@@ -12,6 +12,7 @@
     <artifactId>platform-common-dependences</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <description>基础公共依赖</description>
     <properties>
         <project.version>1.0-SNAPSHOT</project.version>
         <druid.version>1.2.5</druid.version>
@@ -24,12 +25,10 @@
             <dependency>
                 <groupId>org.platform</groupId>
                 <artifactId>platform-common-core</artifactId>
-                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.platform</groupId>
                 <artifactId>platform-common-provide</artifactId>
-                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -38,11 +37,17 @@
             </dependency>
             <!--druid-->
             <!-- https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter -->
+            <!--<dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>-->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid.version}</version>
             </dependency>
+            
             <!--mybatis-plus-->
             <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus -->
             <dependency>

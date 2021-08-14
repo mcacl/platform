@@ -16,6 +16,7 @@
         <module>platform-common-core</module>
         <module>platform-common-provide</module>
         <module>platform-common-dependences</module>
+        <module>platform-common-data</module>
     </modules>
     <properties>
         <mybatis-plus.version>3.4.3</mybatis-plus.version>
