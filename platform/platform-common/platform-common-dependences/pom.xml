@@ -2,39 +2,37 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>platform-common</artifactId>
-        <groupId>org.platform</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
     <modelVersion>4.0.0</modelVersion>
     
     <artifactId>platform-common-dependences</artifactId>
+    <groupId>org.platform</groupId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <description>基础公共依赖</description>
     <properties>
         <project.version>1.0-SNAPSHOT</project.version>
+        
+        <java-jwt.version>3.18.0</java-jwt.version>
         <druid.version>1.2.5</druid.version>
+        <mybatis-plus.version>3.4.3</mybatis-plus.version>
         <dynamic-datasource>3.4.0</dynamic-datasource>
         <mysql.version>8.0.25</mysql.version>
-        <swagger.version>2.1.10</swagger.version>
+        <swagger.version>2.1.9</swagger.version>
+        <cglib.version>3.3.0</cglib.version>
     </properties>
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.platform</groupId>
                 <artifactId>platform-common-core</artifactId>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.platform</groupId>
                 <artifactId>platform-common-provide</artifactId>
+                <version>${project.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-openfeign</artifactId>
-                <version>${spring-cloud.version}</version>
-            </dependency>
+    
             <!--druid-->
             <!-- https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter -->
             <!--<dependency>
@@ -43,18 +41,23 @@
                 <version>${druid.version}</version>
             </dependency>-->
             <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${java-jwt.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid.version}</version>
             </dependency>
-            
+    
             <!--mybatis-plus-->
             <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus -->
-            <dependency>
+            <!--<dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus</artifactId>
                 <version>${mybatis-plus.version}</version>
-            </dependency>
+            </dependency>-->
             <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter -->
             <dependency>
                 <groupId>com.baomidou</groupId>

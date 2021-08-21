@@ -13,8 +13,8 @@
     <description>提供者公共依赖</description>
     <packaging>jar</packaging>
     <properties>
-        <spring-boot-actuator>${spring-boot.vsersion}</spring-boot-actuator>
-        <spring-boot-web>${spring-boot.vsersion}</spring-boot-web>
+        <spring-boot-actuator>${spring-boot.version}</spring-boot-actuator>
+        <spring-boot-web>${spring-boot.version}</spring-boot-web>
     </properties>
     <dependencies>
         <!--监控 和boot admin配合用-->
@@ -22,13 +22,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-            <version>${spring-boot-actuator}</version>
+            <!--            <version>${spring-boot-actuator}</version>-->
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring-boot-web}</version>
+            <!--            <version>${spring-boot-web}</version>-->
         </dependency>
         <dependency>
             <groupId>org.platform</groupId>
@@ -50,21 +50,20 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-            <version>${spring-cloud-alibaba}</version>
+            <!--            <version>${spring-cloud-alibaba}</version>-->
         </dependency>
         <!--配置中心-->
         <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-nacos-config -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-            <version>${spring-cloud-alibaba}</version>
+            <!--            <version>${spring-cloud-alibaba}</version>-->
         </dependency>
         <!--服务降级熔断-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-            <version>${spring-cloud-alibaba}</version>
-            <type>pom</type>
+            <!--            <version>${spring-cloud-alibaba}</version>-->
         </dependency>
         
         <!--<dependency>

@@ -23,13 +23,23 @@
         
         <spring-cloud-dependencies>Hoxton.SR9</spring-cloud-dependencies>
         <spring-cloud.version>3.0.3</spring-cloud.version>
-        <spring-boot.vsersion>2.5.0</spring-boot.vsersion>
+        <spring-boot.version>2.5.0</spring-boot.version>
         <spring-cloud-alibaba>2021.1</spring-cloud-alibaba>
+        <fastjson.version>1.2.78</fastjson.version>
         <knife4j.version>3.0.3</knife4j.version>
         <redisson-spring-boot-starter>3.15.0</redisson-spring-boot-starter>
         <open-feign-core>11.5</open-feign-core>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/cn.hutool/hutool-all -->
         <dependency>
             <groupId>cn.hutool</groupId>
@@ -64,14 +74,16 @@
                 <groupId>org.platform</groupId>
                 <artifactId>platform-common-dependences</artifactId>
                 <version>1.0-SNAPSHOT</version>
-                <!--<type>pom</type>
-                <scope>import</scope>-->
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <!--网关-->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <artifactId>knife4j-dependencies</artifactId>
                 <version>${knife4j.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             
             <!--boot监控-->
@@ -87,7 +99,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.vsersion}</version>
+                <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -96,6 +108,7 @@
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud-dependencies}</version>
                 <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
@@ -111,6 +124,18 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <repositories>
+        <repository>
+            <id>aliyun</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
     <pluginRepositories>
         <pluginRepository>
             <id>aliyun-plugin</id>
@@ -123,13 +148,6 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-    <repositories>
-        <repository>
-            <id>aliyun</id>
-            <name>aliyun</name>
-            <url>https://maven.aliyun.com/repository/public</url>
-        </repository>
-    </repositories>
     <build>
         <resources>
             <resource>

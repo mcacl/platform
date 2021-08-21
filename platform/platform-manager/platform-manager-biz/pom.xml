@@ -14,13 +14,13 @@
     
     <dependencies>
         <dependency>
+            <artifactId>platform-common-provide</artifactId>
+            <groupId>org.platform</groupId>
+        </dependency>
+        <dependency>
             <groupId>org.platform</groupId>
             <artifactId>platform-common-core</artifactId>
             <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <artifactId>platform-common-provide</artifactId>
-            <groupId>org.platform</groupId>
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>

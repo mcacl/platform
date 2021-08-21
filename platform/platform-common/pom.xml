@@ -18,8 +18,4 @@
         <module>platform-common-dependences</module>
         <module>platform-common-data</module>
     </modules>
-    <properties>
-        <mybatis-plus.version>3.4.3</mybatis-plus.version>
-        <cglib.version>3.3.0</cglib.version>
-    </properties>
 </project>

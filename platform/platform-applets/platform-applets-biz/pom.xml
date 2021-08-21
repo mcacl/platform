@@ -11,6 +11,33 @@
     
     <artifactId>platform-applets-biz</artifactId>
     <dependencies>
-    
+        <dependency>
+            <groupId>org.platform</groupId>
+            <artifactId>platform-common-provide</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.platform</groupId>
+            <artifactId>platform-common-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.platform</groupId>
+            <artifactId>platform-applets-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.platform.cloud.AppletsApplication</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
