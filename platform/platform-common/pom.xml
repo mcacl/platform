@@ -17,5 +17,6 @@
         <module>platform-common-provide</module>
         <module>platform-common-dependences</module>
         <module>platform-common-data</module>
+        <module>platform-common-log</module>
     </modules>
 </project>

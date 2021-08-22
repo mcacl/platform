@@ -29,6 +29,7 @@
         <knife4j.version>3.0.3</knife4j.version>
         <redisson-spring-boot-starter>3.15.0</redisson-spring-boot-starter>
         <open-feign-core>11.5</open-feign-core>
+        <slf4j.version>2.0.0-alpha2</slf4j.version>
     </properties>
     <dependencies>
         <dependency>
@@ -57,8 +58,20 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>2.0.0-alpha2</version>
+            <version>${slf4j.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+            <version>2.5.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-ext -->
+        <!--<dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-ext</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>-->
+    
         <!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-annotations -->
         <!--<dependency>
             <groupId>io.swagger.core.v3</groupId>
