@@ -3,7 +3,7 @@ project:
   description: @project.description@
   version: @build.version@
 server:
-  port: 10011
+  port: 10010
 knife4j:
   enableAggregation: true
   nacos:
