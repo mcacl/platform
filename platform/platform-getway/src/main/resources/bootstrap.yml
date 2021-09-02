@@ -2,8 +2,56 @@ project:
   name: @project.artifactId@
   description: @project.description@
   version: @build.version@
-server:
-  port: 10010
+spring:
+  profiles:
+    active: @profiles.active@
+  application:
+    name: @project.artifactId@
+  cloud:
+    nacos:
+      server-addr: ${NACOS_HOST:localhost}:${NACOS_PORT:8848}
+      config:
+        namespace: e169fbcf-c59c-49be-bdac-99162d9a6fc4
+        enabled: true
+        file-extension: yml
+        #下面配置读取配置中心配置
+        shared-configs:
+          - data-id: ${spring.application.name}.${spring.cloud.nacos.config.file-extension}
+            refresh: true
+    gateway:
+      routes:
+        - id: platform-applets
+          uri: lb://platform-applets-biz
+          predicates:
+            - Path=/platform-applets-biz/**
+        - id: platform-manager
+          uri: lb://platform-manager-biz
+          predicates:
+            - Path=/platform-manager-biz/**
+      default-filters:
+        # 过滤重复的请求头
+        # https://cloud.spring.io/spring-cloud-gateway/reference/html/#_deduperesponseheader_gatewayfilter_factory
+        # https://pinocc.cn/2019/09/07/spring-cloud-gateway-%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/
+        - DedupeResponseHeader=Access-Control-Allow-Credentials, RETAIN_UNIQUE
+        - DedupeResponseHeader=Access-Control-Allow-Origin, RETAIN_UNIQUE
+        - DedupeResponseHeader=Vary, RETAIN_UNIQUE
+        - RemoveResponseHeader=intranet
+        - RemoveRequestHeader=intranet
+gateway:
+  security:
+    excludeUrls:
+      - "/actuator/**"
+      - "/swagger-*/**"
+      - "/webjars/**"
+      - "/v2/api-docs/**"
+      - "/doc.html"
+      - "/favicon.ico"
+      - "/error"
+logging:
+  file:
+    name: logs/${spring.application.name}/debug.log
+  level:
+    "com.w2top.tpp.gateway.filter": debug
 knife4j:
   enableAggregation: true
   nacos:
