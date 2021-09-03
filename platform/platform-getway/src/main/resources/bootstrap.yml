@@ -1,7 +1,7 @@
 project:
   name: @project.artifactId@
   description: @project.description@
-  version: @build.version@
+  version: @docker.build.version@
 spring:
   profiles:
     active: @profiles.active@

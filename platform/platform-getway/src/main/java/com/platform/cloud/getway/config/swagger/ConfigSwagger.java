@@ -1,4 +1,4 @@
-package com.platform.cloud.getway.config;
+package com.platform.cloud.getway.config.swagger;
 
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * 创建时间:2021/7/31
@@ -27,7 +26,7 @@ import java.util.stream.Collectors;
 
 @Configuration
 @EnableSwagger2
-public class ConfigKnife4j{
+public class ConfigSwagger{
     @Autowired
     private ApplicationContext applicationContext;
 

@@ -20,16 +20,18 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <docker.build.version>0.0.1</docker.build.version>
         
         <spring-cloud-dependencies>Hoxton.SR9</spring-cloud-dependencies>
         <spring-cloud.version>3.0.3</spring-cloud.version>
         <spring-boot.version>2.5.0</spring-boot.version>
+        <nacosconfig-springboot-autoconfigure.version>0.2.10</nacosconfig-springboot-autoconfigure.version>
         <spring-cloud-alibaba>2021.1</spring-cloud-alibaba>
         <fastjson.version>1.2.78</fastjson.version>
         <knife4j.version>3.0.3</knife4j.version>
         <redisson-spring-boot-starter>3.15.0</redisson-spring-boot-starter>
         <open-feign-core>11.5</open-feign-core>
-        <slf4j.version>2.0.0-alpha2</slf4j.version>
+        <slf4j.version>1.7.32</slf4j.version>
     </properties>
     <dependencies>
         <dependency>
@@ -59,11 +61,6 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-log4j2</artifactId>
-            <version>2.5.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-ext -->
         <!--<dependency>
@@ -129,6 +126,12 @@
                 <version>${spring-cloud-alibaba}</version>
                 <type>pom</type>
                 <scope>import</scope>
+                <!--<exclusions>
+                    <exclusion>
+                        <groupId>com.alibaba.boot</groupId>
+                        <artifactId>nacos-config-spring-boot-autoconfigure</artifactId>
+                    </exclusion>
+                </exclusions>-->
             </dependency>
             <dependency>
                 <groupId>org.redisson</groupId>
@@ -196,6 +199,28 @@
                     <configuration>
                         <testFailureIgnore>true</testFailureIgnore>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.4</version>
+                    <inherited>false</inherited>
+                    <executions>
+                        <execution>
+                            <phase>initialize</phase>
+                            <goals>
+                                <goal>install-file</goal>
+                            </goals>
+                            <configuration>
+                                <groupId>com.alibaba.boot</groupId>
+                                <artifactId>nacos-config-spring-boot-autoconfigure</artifactId>
+                                <version>0.2.10</version>
+                                <packaging>jar</packaging>
+                                <file>./lib/nacos-config-spring-boot-autoconfigure-0.2.10.jar</file>
+                                <!--安装-->
+                            </configuration>
+                        </execution>
+                    </executions>
                 </plugin>
                 <!--<plugin>
                     <groupId>org.apache.maven.plugins</groupId>

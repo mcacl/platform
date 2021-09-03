@@ -7,9 +7,9 @@ spring:
       config:
         namespace: e169fbcf-c59c-49be-bdac-99162d9a6fc4
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:test}?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowMultiQueries=true
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:testdb}?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowMultiQueries=true
     username: ${MYSQL_USERNAME:root}
-    password: ${MYSQL_PASSWORD:123456}
+    password: ${MYSQL_PASSWORD:root}
   redis:
     host: ${REDIS_HOST:124.71.43.168}
     port: ${REDIS_PORT:6379}
