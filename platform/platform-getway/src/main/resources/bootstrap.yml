@@ -51,7 +51,7 @@ logging:
   file:
     name: logs/${spring.application.name}/debug.log
   level:
-    "com.w2top.tpp.gateway.filter": debug
+    "com.w2top.tpp.gateway.filter": info
 knife4j:
   enableAggregation: true
   nacos:

@@ -24,7 +24,7 @@
         
         <spring-cloud-dependencies>Hoxton.SR9</spring-cloud-dependencies>
         <spring-cloud.version>3.0.3</spring-cloud.version>
-        <spring-boot.version>2.5.0</spring-boot.version>
+        <spring-boot.version>2.3.5.RELEASE</spring-boot.version>
         <nacosconfig-springboot-autoconfigure.version>0.2.10</nacosconfig-springboot-autoconfigure.version>
         <spring-cloud-alibaba>2021.1</spring-cloud-alibaba>
         <fastjson.version>1.2.78</fastjson.version>
@@ -205,7 +205,7 @@
                     <artifactId>maven-install-plugin</artifactId>
                     <version>2.4</version>
                     <inherited>false</inherited>
-                    <executions>
+                    <!--<executions>
                         <execution>
                             <phase>initialize</phase>
                             <goals>
@@ -217,10 +217,9 @@
                                 <version>0.2.10</version>
                                 <packaging>jar</packaging>
                                 <file>./lib/nacos-config-spring-boot-autoconfigure-0.2.10.jar</file>
-                                <!--安装-->
                             </configuration>
                         </execution>
-                    </executions>
+                    </executions>-->
                 </plugin>
                 <!--<plugin>
                     <groupId>org.apache.maven.plugins</groupId>

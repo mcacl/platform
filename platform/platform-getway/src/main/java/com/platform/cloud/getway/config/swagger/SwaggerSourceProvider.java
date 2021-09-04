@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.route.RouteDefinition;
 import org.springframework.cloud.gateway.route.RouteDefinitionRepository;
 import org.springframework.cloud.gateway.support.NameUtils;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.config.ResourceHandlerRegistry;
 import org.springframework.web.reactive.config.WebFluxConfigurer;
@@ -22,6 +23,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
+@Primary
 public class SwaggerSourceProvider implements SwaggerResourcesProvider, WebFluxConfigurer{
     private static final String API_URI = "/v2/api-docs";
 

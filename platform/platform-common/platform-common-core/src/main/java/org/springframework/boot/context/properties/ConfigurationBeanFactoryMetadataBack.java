@@ -21,19 +21,19 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-/** @deprecated 为了支持nacos autoconfig 强制使用了springboot <2.4 版本ConfigurationBeanFactoryMetadata 类的方法,高版本没有此方法兼容失败导致无法启动 */
+/** @deprecated 为了支持nacos autoconfig 强制使用了springboot <2.4 版本ConfigurationBeanFactoryMetadata 类的方法,高版本没有此方法兼容失败导致无法启动 重命名去掉Back即可 */
 @Deprecated
-public class ConfigurationBeanFactoryMetadata implements ApplicationContextAware{
-    public static final String BEAN_NAME = ConfigurationBeanFactoryMetadata.class.getName();
+public class ConfigurationBeanFactoryMetadataBack implements ApplicationContextAware{
+    public static final String BEAN_NAME = ConfigurationBeanFactoryMetadataBack.class.getName();
     private ConfigurableApplicationContext applicationContext;
 
-    public ConfigurationBeanFactoryMetadata(){
+    public ConfigurationBeanFactoryMetadataBack(){
     }
 
     static void register(BeanDefinitionRegistry registry){
         if(!registry.containsBeanDefinition(BEAN_NAME)){
             GenericBeanDefinition definition = new GenericBeanDefinition();
-            definition.setBeanClass(ConfigurationBeanFactoryMetadata.class);
+            definition.setBeanClass(ConfigurationBeanFactoryMetadataBack.class);
             definition.setRole(2);
             registry.registerBeanDefinition(BEAN_NAME,definition);
         }
