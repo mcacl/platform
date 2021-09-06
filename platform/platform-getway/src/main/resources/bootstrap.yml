@@ -94,3 +94,12 @@ knife4j:
 #knife4j.nacos.routes.routeAuth.enable:是否启用Basic验证
 #knife4j.nacos.routes.routeAuth.usernae:Basic用户名
 #knife4j.nacos.routes.routeAuth.password:Basic密码
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: is_delete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+    map-underscore-to-camel-case: true
