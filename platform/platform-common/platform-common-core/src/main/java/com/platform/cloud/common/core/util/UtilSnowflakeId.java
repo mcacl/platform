@@ -65,6 +65,12 @@ public class UtilSnowflakeId{
      */
     private long lastTimestamp = -1L;
 
+    private static UtilSnowflakeId idWorker;
+
+    static{
+        idWorker = new UtilSnowflakeId(getWorkId(),getDataCenterId());
+    }
+
     /**
      * 构造函数
      * @param workerId 工作ID (0~31)
@@ -88,44 +94,6 @@ public class UtilSnowflakeId{
             Thread.sleep(1);
             System.out.println(id);
         }
-    }
-
-    private static Long getWorkId(){
-        try{
-            String hostAddress = Inet4Address.getLocalHost().getHostAddress();
-            int[] ints = StringUtils.toCodePoints(hostAddress);
-            int sums = 0;
-            for(int b : ints){
-                sums += b;
-            }
-            Integer serverPort = SpringContextHolder.getServerPort();
-            if(serverPort > 0){
-                sums += serverPort;
-            }
-            return (long) (sums % 32);
-        } catch(UnknownHostException e){
-            // 如果获取失败，则使用随机数备用
-            return RandomUtils.nextLong(0,31);
-        }
-
-    }
-
-    private static Long getDataCenterId(){
-        int[] ints = StringUtils.toCodePoints(SystemUtils.getHostName());
-        int sums = 0;
-        for(int i : ints){
-            sums += i;
-        }
-        return (long) (sums % 32);
-    }
-
-    /**
-     * 静态工具类
-     * @return
-     */
-    public static Long generateId(){
-        long id = idWorker.nextId();
-        return id;
     }
 
     /**
@@ -179,5 +147,43 @@ public class UtilSnowflakeId{
      */
     protected long timeGen(){
         return System.currentTimeMillis();
+    }
+
+    private static Long getWorkId(){
+        try{
+            String hostAddress = Inet4Address.getLocalHost().getHostAddress();
+            int[] ints = StringUtils.toCodePoints(hostAddress);
+            int sums = 0;
+            for(int b : ints){
+                sums += b;
+            }
+            Integer serverPort = SpringContextHolder.getServerPort();
+            if(serverPort > 0){
+                sums += serverPort;
+            }
+            return (long) (sums % 32);
+        } catch(UnknownHostException e){
+            // 如果获取失败，则使用随机数备用
+            return RandomUtils.nextLong(0,31);
+        }
+
+    }
+
+    private static Long getDataCenterId(){
+        int[] ints = StringUtils.toCodePoints(SystemUtils.getHostName());
+        int sums = 0;
+        for(int i : ints){
+            sums += i;
+        }
+        return (long) (sums % 32);
+    }
+
+    /**
+     * 静态工具
+     * @return
+     */
+    public static Long generateId(){
+        long id = idWorker.nextId();
+        return id;
     }
 }
