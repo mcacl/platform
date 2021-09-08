@@ -15,6 +15,7 @@
     <properties>
         <spring-boot-actuator>${spring-boot.version}</spring-boot-actuator>
         <spring-boot-web>${spring-boot.version}</spring-boot-web>
+        <package.version>1.0-SNAPSHOT</package.version>
     </properties>
     <dependencies>
         <!--监控 和boot admin配合用-->
@@ -33,12 +34,12 @@
         <dependency>
             <groupId>org.platform</groupId>
             <artifactId>platform-common-data</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${package.version}</version>
         </dependency>
         <dependency>
             <groupId>org.platform</groupId>
             <artifactId>platform-common-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${package.version}</version>
         </dependency>
         
         <dependency>
@@ -63,13 +64,19 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-webflux</artifactId>
+                </exclusion>
+            </exclusions>
             <!--            <version>${spring-cloud-alibaba}</version>-->
         </dependency>
-        
-        <!--<dependency>
+    
+        <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-ui</artifactId>
-        </dependency>-->
+        </dependency>
         <!--前端网关-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
