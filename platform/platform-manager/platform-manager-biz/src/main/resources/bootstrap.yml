@@ -1,0 +1,112 @@
+project:
+  name: @project.artifactId@
+  description: @project.description@
+  version: @docker.build.version@
+server:
+  servlet:
+    context-path: /@project.artifactId@
+spring:
+  profiles:
+    active: @profiles.active@
+  application:
+    name: @project.artifactId@
+  autoconfigure: #多数据源排除druid自动配置
+    exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
+  cloud:
+    nacos:
+      discovery:
+        metadata:
+          management:
+            context-path: ${server.servlet.context-path}/actuator
+      config:
+        enabled: true
+        file-extension: yml
+        shared-configs:
+          - data-id: ${spring.application.name}.${spring.cloud.nacos.config.file-extension}
+            refresh: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceWrapper
+    druid:
+      filter:
+        slf4j:
+          enabled: true #指定使用slf4j日志组件，支持选择将各种操作过程输出到日志中。
+          statement-executable-sql-log-enable: true
+          statement-sql-pretty-format: true
+        stat:
+          log-slow-sql: true
+          enabled: true
+          merge-sql: true
+      stat-view-servlet:
+        enabled: true #默认值为true，即打开监控页面，但存在泄漏信息的风险，所以修改为false
+        login-username: druidAdmin #配置监控页面登录用户名，启用监控页面后才可用
+        login-password: druidAdmin123 #配置监控页面登录密码，启用监控页面后才可用
+        #allow: 0.0.0.0 #配置允许访问监控页面的IP地址
+      web-stat-filter:
+        enabled: true #默认值为true，统计web关联的监控信息如session/url等，建议修改为false
+        session-stat-enable: false #该功能模块代码不完善，特定场景下会诱发异常，非特别需求，建议修改为false
+  #  kafka:
+  #    producer:
+  #      retries: 0
+  #      batch-size: 16384
+  #      buffer-memory: 33554432
+  #      acks: 1
+  #      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+  #      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  servlet:
+    #上传文件大小限制
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: is_del
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+    map-underscore-to-camel-case: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    logfile:
+      external-file: ${logging.file.path}${logging.file.name}
+    health:
+      show-details: ALWAYS
+logging:
+  file:
+    name: debug.log
+    path: /logs/${spring.application.name}/
+  level:
+    "log.level": info
+
+knife4j:
+  enable: true
+  cors: true
+  setting:
+    swaggerModelName: 出入参对象
+    enableReloadCacheParameter: true
+    enableGroup: false
+
+feign:
+  sentinel:
+    #SentinelTargeter 写完后改为true启用降级
+    enabled: false
+ribbon:
+  #  配置建立连接所用时间，使用与网络状态正常的情况下，两端连接所用的时间
+  ReadTimeout: 10000
+  #  配置连接后从服务器读取到可用资源所用的时间
+  ConnectTimeout: 10000
+#xxl.job:
+#  executor:
+#    #      ip:
+#    #      port: 9610
+#    ### 执行器运行日志文件存储磁盘路径 [选填] ：需要对该路径拥有读写权限；为空则使用默认路径；
+#    logpath: logs/${spring.application.name}/xxl-log
+#    ### 执行器日志文件保存天数 [选填] ： 过期日志自动清理, 限制值大于等于3时生效; 否则, 如-1, 关闭自动清理功能；
+#    logretentiondays: 30
+#    app-name: @project.artifactId@

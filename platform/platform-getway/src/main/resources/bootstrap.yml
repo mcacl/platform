@@ -51,29 +51,40 @@ logging:
   file:
     name: logs/${spring.application.name}/debug.log
   level:
-    "com.w2top.tpp.gateway.filter": info
+    "log.level": info
 knife4j:
   enableAggregation: true
-  nacos:
+  cloud:
     enable: true
-    serviceUrl: http://localhost:8848/nacos/
-    routeAuth:
-      enable: true
-      username: nacos
-      password: nacos
     routes:
-      - name: @project.artifactId@
-        serviceName: @project.artifactId@
-        #groupName: test
-        #namespaceId: test
-        clusters: test
-        location: /v2/api-docs?group=default
-        swaggerVersion: 2.0
-        servicePath: @project.artifactId@
-        routeAuth:
-          enable: false
-          username: test
-          password: 12313
+      - name: 测试分组1
+        uri: knife4j.xiaominfo.com
+        location: /v2/api-docs?group=2.X版本
+      - name: 测试分组2
+        uri: knife4j.xiaominfo.com
+        location: /v2/api-docs?group=3.默认接口
+#knife4j:
+#  enableAggregation: true
+#  nacos:
+#    enable: true
+#    serviceUrl: http://localhost:8848/nacos/
+#    routeAuth:
+#      enable: true
+#      username: nacos
+#      password: nacos
+#    routes:
+#      - name: @project.artifactId@
+#        serviceName: @project.artifactId@
+#        #groupName: test
+#        #namespaceId: test
+#        clusters: test
+#        location: /v2/api-docs?group=default
+#        swaggerVersion: 2.0
+#        servicePath: @project.artifactId@
+#        routeAuth:
+#          enable: false
+#          username: test
+#          password: 12313
 #knife4j.nacos.enable:将该属性设置为true，则代表启用nacos模式
 #knife4j.nacos.serviceUrl:nacos注册中心的地址
 #knife4j.nacos.routeAuth:该属性是一个公共Basic验证属性(可选)，如果开发者提供的OpenAPI规范的服务需要以Basic验证进行鉴权访问，那么可以配置该属性，如果配置该属性，则该模式下所有配置的Routes节点接口都会以Basic验证信息访问接口
@@ -97,7 +108,7 @@ knife4j:
 mybatis-plus:
   global-config:
     db-config:
-      logic-delete-field: is_delete
+      logic-delete-field: is_del
       logic-delete-value: 1
       logic-not-delete-value: 0
   configuration:

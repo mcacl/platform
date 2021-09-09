@@ -31,7 +31,7 @@
         <knife4j.version>3.0.3</knife4j.version>
         <redisson-spring-boot-starter>3.15.0</redisson-spring-boot-starter>
         <open-feign-core>11.5</open-feign-core>
-        <slf4j.version>1.7.32</slf4j.version>
+        <slf4j.version>1.7.30</slf4j.version>
     </properties>
     <dependencies>
         <dependency>
