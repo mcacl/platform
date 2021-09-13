@@ -30,8 +30,8 @@ public class ConfigSwagger{
     @Autowired
     private ApplicationContext applicationContext;
 
-    @Bean(value = "defaultApi2")
-    public Docket defaultApi2(){
+    @Bean(value = "docket")
+    public Docket docket(){
         Docket docket = new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).groupName("网关").select().apis(RequestHandlerSelectors.withClassAnnotation(Api.class)).paths(PathSelectors.any()).build().securitySchemes(securitySchemes());
         return docket;
     }
