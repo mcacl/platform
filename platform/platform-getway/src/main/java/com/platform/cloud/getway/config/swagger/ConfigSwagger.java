@@ -32,7 +32,7 @@ public class ConfigSwagger{
 
     @Bean(value = "docket")
     public Docket docket(){
-        Docket docket = new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).groupName("网关").select().apis(RequestHandlerSelectors.withClassAnnotation(Api.class)).paths(PathSelectors.any()).build().securitySchemes(securitySchemes());
+        Docket docket = new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).groupName("platform-getway").select().apis(RequestHandlerSelectors.withClassAnnotation(Api.class)).paths(PathSelectors.any()).build().securitySchemes(securitySchemes());
         return docket;
     }
 
