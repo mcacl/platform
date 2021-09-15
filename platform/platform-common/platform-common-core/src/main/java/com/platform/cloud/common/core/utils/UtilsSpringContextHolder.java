@@ -1,4 +1,4 @@
-package com.platform.cloud.common.core.util;
+package com.platform.cloud.common.core.utils;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +22,7 @@ import java.util.stream.Stream;
 @Slf4j
 @Service
 @Lazy(false)
-public class SpringContextHolder implements ApplicationContextAware, DisposableBean{
+public class UtilsSpringContextHolder implements ApplicationContextAware, DisposableBean{
     private static ApplicationContext applicationContext = null;
     @Getter
     private static String applicationName = null;
@@ -45,19 +45,19 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
 
     @Override
     public void destroy() throws Exception{
-        SpringContextHolder.clearHolder();//清理
+        UtilsSpringContextHolder.clearHolder();//清理
     }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException{
-        SpringContextHolder.applicationContext = applicationContext;
-        SpringContextHolder.applicationName = applicationContext.getEnvironment().getProperty("spring.application.name");
-        SpringContextHolder.isDebug = Objects.equals(applicationContext.getEnvironment().getProperty("debug"),"true");
+        UtilsSpringContextHolder.applicationContext = applicationContext;
+        UtilsSpringContextHolder.applicationName = applicationContext.getEnvironment().getProperty("spring.application.name");
+        UtilsSpringContextHolder.isDebug = Objects.equals(applicationContext.getEnvironment().getProperty("debug"),"true");
 
-        SpringContextHolder.isDev = Stream.of(applicationContext.getEnvironment().getActiveProfiles()).anyMatch(s->!s.equals("prod"));
+        UtilsSpringContextHolder.isDev = Stream.of(applicationContext.getEnvironment().getActiveProfiles()).anyMatch(s->!s.equals("prod"));
 
         String serverPortStr = applicationContext.getEnvironment().getProperty("server.port");
-        Optional.ofNullable(serverPortStr).ifPresent(s->SpringContextHolder.serverPort = Integer.valueOf(s));
+        Optional.ofNullable(serverPortStr).ifPresent(s->UtilsSpringContextHolder.serverPort = Integer.valueOf(s));
         log.info("当前注册中心:{}",applicationContext.getEnvironment().getProperty("spring.cloud.nacos.server-addr"));
     }
 
@@ -89,11 +89,11 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
         if(log.isDebugEnabled()){
             log.debug("清理SpringContextHolder");
         }
-        SpringContextHolder.applicationContext = null;
-        SpringContextHolder.applicationName = null;
-        SpringContextHolder.isDev = true;
-        SpringContextHolder.isDebug = true;
-        SpringContextHolder.serverPort = null;
+        UtilsSpringContextHolder.applicationContext = null;
+        UtilsSpringContextHolder.applicationName = null;
+        UtilsSpringContextHolder.isDev = true;
+        UtilsSpringContextHolder.isDebug = true;
+        UtilsSpringContextHolder.serverPort = null;
     }
 
     /**

@@ -1,19 +1,17 @@
 package com.platform.cloud.filter;
 
+import com.platform.cloud.common.core.utils.UtilsIP;
 import com.platform.cloud.properties.PropertisGetWay;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
-
-import java.util.List;
 
 /**
  * 创建时间:2021/9/15 0015
@@ -29,8 +27,8 @@ public class FilterGetWayAuthentication implements GlobalFilter, Ordered{
     public FilterGetWayAuthentication(PropertisGetWay propertisGetWay){
         this.propertisGetWay = propertisGetWay;
     }
-
-    @Override
+    //更具getway配置通过或拦截
+   /* @Override
     public Mono<Void> filter(ServerWebExchange exchange,GatewayFilterChain chain){
         String curUrl = exchange.getRequest().getPath().value();
         List<String> authheaders = exchange.getRequest().getHeaders().get(HttpHeaders.AUTHORIZATION);
@@ -49,11 +47,9 @@ public class FilterGetWayAuthentication implements GlobalFilter, Ordered{
         if(null == authheaders || authheaders.isEmpty()){
             return this.response401(exchange);//无请求头
         }else{
-            String token = authheaders.get(0);
-            //todo 未知内容
             return this.response401(exchange);
         }
-    }
+    }*/
 
     @Override
     public int getOrder(){
@@ -64,5 +60,12 @@ public class FilterGetWayAuthentication implements GlobalFilter, Ordered{
         ServerHttpResponse response = exchange.getResponse();
         response.setStatusCode(HttpStatus.UNAUTHORIZED);
         return response.setComplete();
+    }
+
+    @Override
+    public Mono<Void> filter(ServerWebExchange exchange,GatewayFilterChain chain){
+        String ip = UtilsIP.getRealIpAddress(exchange.getRequest());
+        log.info("当前请求IP>>{}",ip);
+        return chain.filter(exchange);
     }
 }

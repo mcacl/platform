@@ -11,9 +11,7 @@ import org.springframework.retry.annotation.EnableRetry;
 @EnableFeignClients(basePackages = {"com.platform.cloud.*"})
 @SpringCloudApplication
 public class ManagerApplication{
-
     public static void main(String[] args){
         SpringApplication.run(ManagerApplication.class,args);
     }
-
 }
