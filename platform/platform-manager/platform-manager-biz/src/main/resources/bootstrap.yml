@@ -39,8 +39,8 @@ spring:
           merge-sql: true
       stat-view-servlet:
         enabled: true #默认值为true，即打开监控页面，但存在泄漏信息的风险，所以修改为false
-        login-username: druidAdmin #配置监控页面登录用户名，启用监控页面后才可用
-        login-password: druidAdmin123 #配置监控页面登录密码，启用监控页面后才可用
+        login-username: druid #配置监控页面登录用户名，启用监控页面后才可用
+        login-password: druid #配置监控页面登录密码，启用监控页面后才可用
         #allow: 0.0.0.0 #配置允许访问监控页面的IP地址
       web-stat-filter:
         enabled: true #默认值为true，统计web关联的监控信息如session/url等，建议修改为false
@@ -83,7 +83,6 @@ logging:
     path: /logs/${spring.application.name}/
   level:
     "log.level": info
-
 knife4j:
   enable: true
   cors: true
@@ -91,7 +90,6 @@ knife4j:
     swaggerModelName: 出入参对象
     enableReloadCacheParameter: true
     enableGroup: false
-
 feign:
   sentinel:
     #SentinelTargeter 写完后改为true启用降级

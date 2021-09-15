@@ -47,6 +47,9 @@ gateway:
       - "/doc.html"
       - "/favicon.ico"
       - "/error"
+  #开启链路追踪 默认开启
+  trace:
+    enable: true
 logging:
   file:
     name: logs/${spring.application.name}/debug.log
