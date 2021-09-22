@@ -19,6 +19,7 @@
         <mysql.version>8.0.25</mysql.version>
         <swagger.version>2.1.9</swagger.version>
         <cglib.version>3.3.0</cglib.version>
+        <jasypt.version>3.0.4</jasypt.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -44,6 +45,12 @@
                 <groupId>com.auth0</groupId>
                 <artifactId>java-jwt</artifactId>
                 <version>${java-jwt.version}</version>
+            </dependency>
+            <!--加密jasypt-->
+            <dependency>
+                <groupId>com.github.ulisesbocchio</groupId>
+                <artifactId>jasypt-spring-boot</artifactId>
+                <version>${jasypt.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
