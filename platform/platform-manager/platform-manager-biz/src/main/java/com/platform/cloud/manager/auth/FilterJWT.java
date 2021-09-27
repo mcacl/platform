@@ -3,7 +3,7 @@ package com.platform.cloud.manager.auth;
 import cn.hutool.core.text.StrFormatter;
 import com.auth0.jwt.interfaces.Claim;
 import com.platform.cloud.common.core.constant.ConstantSecurity;
-import com.platform.cloud.common.core.utils.UtilsJWT;
+import com.platform.cloud.common.core.utils.UtilJWT;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.redisson.api.RBucket;
@@ -52,7 +52,7 @@ public class FilterJWT extends OncePerRequestFilter{
         }
         // 取出jwt
         String jwt = head.replace(ConstantSecurity.MANAGER_HEADER_PREFIX,"");
-        Claim userIdClaim = UtilsJWT.getClaim(jwt,"userId");
+        Claim userIdClaim = UtilJWT.getClaim(jwt,"userId");
         if(Objects.isNull(userIdClaim)){
             String message = StrFormatter.format("错误的Token! jwt:{}!",jwt);
             log.warn(message);
@@ -76,7 +76,7 @@ public class FilterJWT extends OncePerRequestFilter{
         String ttlStr = split[1];
         int ttl = Integer.parseInt(ttlStr);
         // 验证jwt
-        boolean verify = UtilsJWT.verify(secret,jwt);
+        boolean verify = UtilJWT.verify(secret,jwt);
         if(!verify){
             String message = StrFormatter.format("Token验证失败! jwt:{},userId:{}",jwt,userId);
             log.info(message);
@@ -105,7 +105,7 @@ public class FilterJWT extends OncePerRequestFilter{
     }
 
     private void flushJwt(String secretKey,String userId,String ttl,HttpServletResponse response){
-        String jwt = UtilsJWT.generateToken(secretKey,builder->builder.withClaim("userId",userId));
+        String jwt = UtilJWT.generateToken(secretKey,builder->builder.withClaim("userId",userId));
         response.setHeader(HttpHeaders.AUTHORIZATION,ConstantSecurity.MANAGER_HEADER_PREFIX + jwt);
         response.setHeader(HttpHeaders.EXPIRES,ttl);
     }

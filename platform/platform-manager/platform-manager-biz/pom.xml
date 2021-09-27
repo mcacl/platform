@@ -10,7 +10,7 @@
     <artifactId>platform-manager-biz</artifactId>
     
     <name>platform-manager-biz</name>
-    <description>platform-manager-biz</description>
+    <description>platform后台管理服务</description>
     
     <dependencies>
         <dependency>

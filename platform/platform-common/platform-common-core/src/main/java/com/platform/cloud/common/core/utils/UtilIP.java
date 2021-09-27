@@ -10,10 +10,10 @@ import java.net.InetSocketAddress;
 /**
  * 创建时间:2021/9/15
  * 创建人:pmc
- * 描述:
+ * 描述:获取ip工具类
  */
 @Slf4j
-public class UtilsIP{
+public class UtilIP{
 
     private static final String UNKNOWN = "unknown";
     private static final String LOCALHOST = "127.0.0.1";

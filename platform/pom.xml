@@ -13,6 +13,7 @@
         <module>platform-manager</module>
         <module>platform-applets</module>
         <module>platform-getway</module>
+        <module>platform-user</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>

@@ -22,7 +22,7 @@ import java.util.stream.Stream;
 @Slf4j
 @Service
 @Lazy(false)
-public class UtilsSpringContextHolder implements ApplicationContextAware, DisposableBean{
+public class UtilSpringContextHolder implements ApplicationContextAware, DisposableBean{
     private static ApplicationContext applicationContext = null;
     @Getter
     private static String applicationName = null;
@@ -43,22 +43,23 @@ public class UtilsSpringContextHolder implements ApplicationContextAware, Dispos
         return applicationContext;
     }
 
-    @Override
-    public void destroy() throws Exception{
-        UtilsSpringContextHolder.clearHolder();//清理
+    /**
+     * 清除SpringContextHolder中的ApplicationContext为Null.
+     */
+    public static void clearHolder(){
+        if(log.isDebugEnabled()){
+            log.debug("清理SpringContextHolder");
+        }
+        UtilSpringContextHolder.applicationContext = null;
+        UtilSpringContextHolder.applicationName = null;
+        UtilSpringContextHolder.isDev = true;
+        UtilSpringContextHolder.isDebug = true;
+        UtilSpringContextHolder.serverPort = null;
     }
 
     @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException{
-        UtilsSpringContextHolder.applicationContext = applicationContext;
-        UtilsSpringContextHolder.applicationName = applicationContext.getEnvironment().getProperty("spring.application.name");
-        UtilsSpringContextHolder.isDebug = Objects.equals(applicationContext.getEnvironment().getProperty("debug"),"true");
-
-        UtilsSpringContextHolder.isDev = Stream.of(applicationContext.getEnvironment().getActiveProfiles()).anyMatch(s->!s.equals("prod"));
-
-        String serverPortStr = applicationContext.getEnvironment().getProperty("server.port");
-        Optional.ofNullable(serverPortStr).ifPresent(s->UtilsSpringContextHolder.serverPort = Integer.valueOf(s));
-        log.info("当前注册中心:{}",applicationContext.getEnvironment().getProperty("spring.cloud.nacos.server-addr"));
+    public void destroy() throws Exception{
+        UtilSpringContextHolder.clearHolder();//清理
     }
 
     /**
@@ -82,18 +83,17 @@ public class UtilsSpringContextHolder implements ApplicationContextAware, Dispos
         return applicationContext.getBean(requiredType);
     }
 
-    /**
-     * 清除SpringContextHolder中的ApplicationContext为Null.
-     */
-    public static void clearHolder(){
-        if(log.isDebugEnabled()){
-            log.debug("清理SpringContextHolder");
-        }
-        UtilsSpringContextHolder.applicationContext = null;
-        UtilsSpringContextHolder.applicationName = null;
-        UtilsSpringContextHolder.isDev = true;
-        UtilsSpringContextHolder.isDebug = true;
-        UtilsSpringContextHolder.serverPort = null;
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException{
+        UtilSpringContextHolder.applicationContext = applicationContext;
+        UtilSpringContextHolder.applicationName = applicationContext.getEnvironment().getProperty("spring.application.name");
+        UtilSpringContextHolder.isDebug = Objects.equals(applicationContext.getEnvironment().getProperty("debug"),"true");
+
+        UtilSpringContextHolder.isDev = Stream.of(applicationContext.getEnvironment().getActiveProfiles()).anyMatch(s->!s.equals("prod"));
+
+        String serverPortStr = applicationContext.getEnvironment().getProperty("server.port");
+        Optional.ofNullable(serverPortStr).ifPresent(s->UtilSpringContextHolder.serverPort = Integer.valueOf(s));
+        log.info("当前注册中心:{}",applicationContext.getEnvironment().getProperty("spring.cloud.nacos.server-addr"));
     }
 
     /**

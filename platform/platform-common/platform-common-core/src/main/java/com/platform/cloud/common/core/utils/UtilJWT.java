@@ -20,10 +20,10 @@ import java.util.function.Consumer;
 /**
  * 创建时间:2021/9/22
  * 创建人:pmc
- * 描述:
+ * 描述:JWT 工具类
  */
 @Slf4j
-public class UtilsJWT{
+public class UtilJWT{
     private static final String ISSUE = "Issue"; //签发
 
     /**

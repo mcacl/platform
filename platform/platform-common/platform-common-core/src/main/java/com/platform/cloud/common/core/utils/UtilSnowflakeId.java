@@ -7,7 +7,10 @@ import org.apache.commons.lang3.SystemUtils;
 import java.net.Inet4Address;
 import java.net.UnknownHostException;
 
-public class UtilsSnowflakeId{
+/**
+ * 雪花id帮助类
+ */
+public class UtilSnowflakeId{
     /**
      * 开始时间截 (2015-01-01)
      */
@@ -65,10 +68,10 @@ public class UtilsSnowflakeId{
      */
     private long lastTimestamp = -1L;
 
-    private static UtilsSnowflakeId idWorker;
+    private static UtilSnowflakeId idWorker;
 
     static{
-        idWorker = new UtilsSnowflakeId(getWorkId(),getDataCenterId());
+        idWorker = new UtilSnowflakeId(getWorkId(),getDataCenterId());
     }
 
     /**
@@ -76,7 +79,7 @@ public class UtilsSnowflakeId{
      * @param workerId 工作ID (0~31)
      * @param datacenterId 数据中心ID (0~31)
      */
-    public UtilsSnowflakeId(long workerId,long datacenterId){
+    public UtilSnowflakeId(long workerId,long datacenterId){
         if(workerId > maxWorkerId || workerId < 0){
             throw new IllegalArgumentException(String.format("worker Id can't be greater than %d or less than 0",maxWorkerId));
         }
@@ -88,7 +91,7 @@ public class UtilsSnowflakeId{
     }
 
     public static void main(String[] args) throws InterruptedException{
-        UtilsSnowflakeId idWorker = new UtilsSnowflakeId(0,0);
+        UtilSnowflakeId idWorker = new UtilSnowflakeId(0,0);
         for(int i = 0; i < 10; i++){
             long id = idWorker.nextId();
             Thread.sleep(1);
@@ -157,7 +160,7 @@ public class UtilsSnowflakeId{
             for(int b : ints){
                 sums += b;
             }
-            Integer serverPort = UtilsSpringContextHolder.getServerPort();
+            Integer serverPort = UtilSpringContextHolder.getServerPort();
             if(serverPort > 0){
                 sums += serverPort;
             }

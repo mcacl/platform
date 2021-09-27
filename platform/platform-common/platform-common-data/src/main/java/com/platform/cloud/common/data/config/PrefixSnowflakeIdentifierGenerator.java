@@ -2,7 +2,7 @@ package com.platform.cloud.common.data.config;
 
 import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
 import com.platform.cloud.common.core.entity.EntityBaseSnowflakeId;
-import com.platform.cloud.common.core.utils.UtilsSnowflakeId;
+import com.platform.cloud.common.core.utils.UtilSnowflakeId;
 import lombok.var;
 import org.apache.commons.lang3.StringUtils;
 
@@ -14,7 +14,7 @@ import org.apache.commons.lang3.StringUtils;
 public class PrefixSnowflakeIdentifierGenerator implements IdentifierGenerator{
     @Override
     public Number nextId(Object entity){
-        return UtilsSnowflakeId.generateId();
+        return UtilSnowflakeId.generateId();
     }
 
     @Override
