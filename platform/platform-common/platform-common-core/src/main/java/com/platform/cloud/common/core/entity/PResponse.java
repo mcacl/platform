@@ -4,6 +4,7 @@ import cn.hutool.core.text.StrFormatter;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
 
@@ -55,7 +56,7 @@ public class PResponse<DATA> implements Serializable{
             return String.valueOf(statusCode);
         }else{
             String codeStr = String.valueOf(statusCode);
-            codeStr. return FORMAT_STR.substring(0,FORMAT_STR.length() - codeStr.length()) + codeStr;
+            return StringUtils.leftPad(codeStr,5,"0");
         }
     }
 }
