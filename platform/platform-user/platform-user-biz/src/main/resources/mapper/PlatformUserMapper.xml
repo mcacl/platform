@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.platform.cloud.user.mapper.PlatformUserMapper">
+    
+    <resultMap id="BaseResultMap" type="com.platform.cloud.user.entity.PlatformUser">
+        <id property="id" column="id" jdbcType="INTEGER" />
+        <result property="name" column="name" jdbcType="VARCHAR" />
+        <result property="loginName" column="login_name" jdbcType="VARCHAR" />
+        <result property="password" column="password" jdbcType="VARCHAR" />
+        <result property="state" column="state" jdbcType="INTEGER" />
+        <result property="nickName" column="nick_name" jdbcType="VARCHAR" />
+        <result property="sex" column="sex" jdbcType="INTEGER" />
+        <result property="phone" column="phone" jdbcType="VARCHAR" />
+        <result property="email" column="email" jdbcType="VARCHAR" />
+        <result property="loginTime" column="login_time" jdbcType="TIMESTAMP" />
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP" />
+        <result property="createUserId" column="create_user_id" jdbcType="INTEGER" />
+        <result property="createUser" column="create_user" jdbcType="VARCHAR" />
+        <result property="isDel" column="is_del" jdbcType="INTEGER" />
+        <result property="secretKey" column="secret_key" jdbcType="VARCHAR" />
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP" />
+        <result property="idCard" column="id_card" jdbcType="VARCHAR" />
+    </resultMap>
+    
+    <sql id="Base_Column_List">
+        id,name,login_name,
+        password,state,nick_name,
+        sex,phone,email,
+        login_time,create_time,create_user_id,
+        create_user,is_del,secret_key,
+        update_time,id_card
+    </sql>
+</mapper>
