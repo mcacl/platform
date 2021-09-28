@@ -7,6 +7,7 @@ import lombok.experimental.Accessors;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
+import java.util.Optional;
 
 /**
  * 创建时间:2021/9/28 0028
@@ -28,15 +29,15 @@ public class PResponse<DATA> implements Serializable{
     @ApiModelProperty("返回数据")
     private DATA data;
 
-    public static <D> PResponse<D> success(){
-        PResponse<D> response = new PResponse<>();
+    public static <DATA> PResponse<DATA> success(){
+        PResponse<DATA> response = new PResponse<>();
         response.setStatus(true);
         response.setStatusCode(0);
         return response;
     }
 
-    public static <D> PResponse<D> success(String message){
-        PResponse<D> success = PResponse.<D>success();
+    public static <DATA> PResponse<DATA> success(String message){
+        PResponse<DATA> success = PResponse.<DATA>success();
         if(message != null){
             success.setStatusMessage(message);
         }
@@ -58,5 +59,43 @@ public class PResponse<DATA> implements Serializable{
             String codeStr = String.valueOf(statusCode);
             return StringUtils.leftPad(codeStr,5,"0");
         }
+    }
+
+    public static <DATA> PResponse<DATA> data(DATA data){
+        PResponse<DATA> success = PResponse.<DATA>success();
+        success.setData(data);
+        return success;
+    }
+
+    public static <DATA> PResponse<DATA> failed(){
+        PResponse<DATA> failed = new PResponse<>();
+        failed.setStatus(false);
+        failed.setStatusCode(1);
+        return failed;
+    }
+
+    public static <DATA> PResponse<DATA> failed(String statusMessage){
+        PResponse<DATA> failed = PResponse.<DATA>failed();
+        Optional.ofNullable(statusMessage).ifPresent(s->failed.setStatusMessage(statusMessage));
+        return failed;
+    }
+
+    public static <DATA> PResponse<DATA> failed(ExMessage exMessage){
+        PResponse<DATA> failed = PResponse.<DATA>failed();
+        Optional.ofNullable(exMessage).ifPresent(ex->failed.setStatusMessage(exMessage.getMessage()).setStatusCode(exMessage.getCode()));
+        return failed;
+    }
+
+    public static <DATA> PResponse<DATA> failed(Integer statusCode,String statusMessage){
+        PResponse<DATA> failed = PResponse.<DATA>failed(statusMessage);
+        Optional.ofNullable(statusCode).ifPresent(s->failed.setStatusCode(statusCode));
+        return failed;
+    }
+
+    public static <DATA> PResponse<DATA> failed(String statusCodeStr,String statusMessage){
+        PResponse<DATA> failed = PResponse.<DATA>failed(statusMessage);
+        failed.statusCode = statusCodeStr;
+        failed.statusMessage = statusMessage;
+        return failed;
     }
 }

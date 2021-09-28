@@ -1,8 +1,9 @@
 package com.platform.cloud.user.controller;
 
+import com.platform.cloud.common.core.entity.PResponse;
+import com.platform.cloud.user.entity.PlatformUser;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,8 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class CtroleTest{
     @ApiOperation("测试接口")
     @PostMapping("getTest")
-    public ResponseEntity<EntityTest> getTest(){
-        EntityTest test = new EntityTest(1l,"小明");
-        return test;
+    public PResponse<PlatformUser> getTest(){
+        PlatformUser test = new PlatformUser();
+        return PResponse.data(test);
     }
 }
