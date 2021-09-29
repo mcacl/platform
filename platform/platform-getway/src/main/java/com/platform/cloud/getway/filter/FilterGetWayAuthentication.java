@@ -1,7 +1,7 @@
-package com.platform.cloud.filter;
+package com.platform.cloud.getway.filter;
 
 import com.platform.cloud.common.core.utils.UtilIP;
-import com.platform.cloud.properties.PropertisGetWay;
+import com.platform.cloud.getway.properties.PropertisGetWay;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
@@ -65,7 +65,7 @@ public class FilterGetWayAuthentication implements GlobalFilter, Ordered{
     @Override
     public Mono<Void> filter(ServerWebExchange exchange,GatewayFilterChain chain){
         String ip = UtilIP.getRealIpAddress(exchange.getRequest());
-        log.info("当前请求IP>>{}",ip);
+        log.info("当前请求IP>>{},地址>>{}",ip,exchange.getRequest().getURI());
         return chain.filter(exchange);
     }
 }

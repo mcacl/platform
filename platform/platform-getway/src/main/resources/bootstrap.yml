@@ -28,6 +28,10 @@ spring:
           uri: lb://platform-manager-biz
           predicates:
             - Path=/platform-manager-biz/**
+        - id: platform-user
+          uri: lb://platform-user-biz
+          predicates:
+            - Path=/platform-user-biz/**
       default-filters:
         # 过滤重复的请求头
         # https://cloud.spring.io/spring-cloud-gateway/reference/html/#_deduperesponseheader_gatewayfilter_factory

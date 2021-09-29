@@ -37,33 +37,32 @@ import static java.util.Optional.ofNullable;
 @RequestMapping("/gateway/swagger-resources")
 public class ApiResourceController{
 
+    private final SwaggerResourcesProvider swaggerResources;
+    @Autowired(required = false)
+    private SecurityConfiguration securityConfiguration;
+    @Autowired(required = false)
+    private UiConfiguration uiConfiguration;
 
-  private final SwaggerResourcesProvider swaggerResources;
-  @Autowired(required = false)
-  private SecurityConfiguration securityConfiguration;
-  @Autowired(required = false)
-  private UiConfiguration uiConfiguration;
+    @Autowired
+    public ApiResourceController(@Qualifier("inMemorySwaggerResourcesProvider") SwaggerResourcesProvider swaggerResources){
+        this.swaggerResources = swaggerResources;
+    }
 
-  @Autowired
-  public ApiResourceController(@Qualifier("inMemorySwaggerResourcesProvider") SwaggerResourcesProvider swaggerResources){
-    this.swaggerResources = swaggerResources;
-  }
+    @RequestMapping(value = "/configuration/security")
+    @ResponseBody
+    public ResponseEntity<SecurityConfiguration> securityConfiguration(){
+        return new ResponseEntity<>(ofNullable(securityConfiguration).orElse(SecurityConfigurationBuilder.builder().build()),HttpStatus.OK);
+    }
 
-  @RequestMapping(value = "/configuration/security")
-  @ResponseBody
-  public ResponseEntity<SecurityConfiguration> securityConfiguration(){
-    return new ResponseEntity<>(ofNullable(securityConfiguration).orElse(SecurityConfigurationBuilder.builder().build()),HttpStatus.OK);
-  }
+    @RequestMapping(value = "/configuration/ui")
+    @ResponseBody
+    public ResponseEntity<UiConfiguration> uiConfiguration(){
+        return new ResponseEntity<>(ofNullable(uiConfiguration).orElse(UiConfigurationBuilder.builder().build()),HttpStatus.OK);
+    }
 
-  @RequestMapping(value = "/configuration/ui")
-  @ResponseBody
-  public ResponseEntity<UiConfiguration> uiConfiguration(){
-    return new ResponseEntity<>(ofNullable(uiConfiguration).orElse(UiConfigurationBuilder.builder().build()),HttpStatus.OK);
-  }
-
-  @RequestMapping
-  @ResponseBody
-  public ResponseEntity<List<SwaggerResource>> swaggerResources(){
-    return new ResponseEntity<>(swaggerResources.get(),HttpStatus.OK);
-  }
+    @RequestMapping
+    @ResponseBody
+    public ResponseEntity<List<SwaggerResource>> swaggerResources(){
+        return new ResponseEntity<>(swaggerResources.get(),HttpStatus.OK);
+    }
 }

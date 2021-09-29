@@ -13,6 +13,7 @@ spring:
           url: jdbc:mysql://localhost:3306/platform_core?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowMultiQueries=true&zeroDateTimeBehavior=CONVERT_TO_NULL
           username: root
           password: root
+          driver-class-name: com.mysql.cj.jdbc.Driver
         testdb:
           url: jdbc:mysql://localhost:3306/platform_core?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowMultiQueries=true&zeroDateTimeBehavior=CONVERT_TO_NULL
           username: root

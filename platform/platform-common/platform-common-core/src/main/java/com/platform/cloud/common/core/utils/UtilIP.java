@@ -48,7 +48,7 @@ public class UtilIP{
                     ipAddress = inetSocketAddress.getAddress().getHostAddress();
                 }
                 // 如果是127.0.0.1，则取本地真实ip
-                if(LOCALHOST.equals(ipAddress)){
+                if(LOCALHOST.equals(ipAddress) || ipAddress.equals("0:0:0:0:0:0:0:1")){
                     InetAddress localAddress = InetAddress.getLocalHost();
                     if(localAddress.getHostAddress() != null){
                         ipAddress = localAddress.getHostAddress();
