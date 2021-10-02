@@ -6,6 +6,7 @@ import org.springframework.http.server.reactive.ServerHttpRequest;
 
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
+import java.net.UnknownHostException;
 
 /**
  * 创建时间:2021/9/15
@@ -17,6 +18,7 @@ public class UtilIP{
 
     private static final String UNKNOWN = "unknown";
     private static final String LOCALHOST = "127.0.0.1";
+    private static final String LOCALHOSTSTR = "localhost";
     private static final String SEPARATOR = ",";
 
     private static final String HEADER_X_FORWARDED_FOR = "x-forwarded-for";
@@ -48,7 +50,7 @@ public class UtilIP{
                     ipAddress = inetSocketAddress.getAddress().getHostAddress();
                 }
                 // 如果是127.0.0.1，则取本地真实ip
-                if(LOCALHOST.equals(ipAddress) || ipAddress.equals("0:0:0:0:0:0:0:1")){
+                if(LOCALHOST.equals(ipAddress) || LOCALHOSTSTR.equals(ipAddress) || ipAddress.equals("0:0:0:0:0:0:0:1")){
                     InetAddress localAddress = InetAddress.getLocalHost();
                     if(localAddress.getHostAddress() != null){
                         ipAddress = localAddress.getHostAddress();
@@ -66,5 +68,20 @@ public class UtilIP{
             ipAddress = "";
         }
         return ipAddress == null ? "" : ipAddress;
+    }
+
+    public static String IPOrLocalIP(String IP){
+        String ip = IP;
+        try{
+            if(LOCALHOST.equals(IP) || LOCALHOSTSTR.equals(IP) || IP.equals("0:0:0:0:0:0:0:1")){
+                InetAddress localAddress = InetAddress.getLocalHost();
+                if(localAddress.getHostAddress() != null){
+                    ip = localAddress.getHostAddress();
+                }
+            }
+        } catch(UnknownHostException e){
+            log.error("本地IP获取失败",e);
+        }
+        return ip;
     }
 }
