@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
  */
 @Slf4j
 @Configuration
-public class MybatisPlusConfig{
+public class ConfigMybatisPlus{
 
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor(){

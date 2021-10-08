@@ -122,7 +122,7 @@ public class AspectNotes{
     private void printRequestBeforeLog(JoinPoint joinPoint,HttpServletRequest request,String methodDescription,String requestArgsStr,boolean printArg){
 
         // 打印请求相关参数
-        log.info("========================================== START ==========================================");
+        log.info("======================================== START ========================================");
         // 打印请求 url
         log.info("[{}] URL>>{}",request.getMethod(),request.getRequestURL().toString());
         // 打印描述信息
@@ -139,17 +139,8 @@ public class AspectNotes{
         }
     }
 
-    private void printRequestAfterLog(long consuming,String resultStr,boolean printArg){
-        log.info("用时>> {} ms",consuming);
-        if(printArg && StringUtils.isNotBlank(resultStr)){
-            log.info("Response返回>>  : {}",resultStr);
-        }
-
-        log.info("========================================== END ==========================================");
-    }
-
     private void printMethodBeforeLog(JoinPoint joinPoint,String methodDescription,String logArgStr,boolean printArg){
-        log.info("======= METHOD =======");
+        log.info("======================================== METHOD ========================================");
         if(StringUtils.isNotBlank(methodDescription)){
             log.info("说明>>{}",methodDescription);
         }
@@ -157,6 +148,15 @@ public class AspectNotes{
         if(printArg && StringUtils.isNotBlank(logArgStr)){
             log.info("MethodArg: {}",logArgStr);
         }
+    }
+
+    private void printRequestAfterLog(long consuming,String resultStr,boolean printArg){
+        log.info("用时>> {} ms",consuming);
+        if(printArg && StringUtils.isNotBlank(resultStr)){
+            log.info("Response返回>>  : {}",resultStr);
+        }
+
+        log.info("=========================================== END ===========================================");
     }
 
     private void printMethodAfterLog(long consuming,String resultStr,boolean printArg){

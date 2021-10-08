@@ -14,10 +14,4 @@ public @interface Notes{
      * @return
      */
     String value() default "";
-
-    /**
-     * 方法参数
-     * @return
-     */
-    String[] params() default {};
 }
