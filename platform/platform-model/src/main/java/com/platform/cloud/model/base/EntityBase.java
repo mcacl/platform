@@ -1,4 +1,4 @@
-package com.platform.cloud.common.core.entity;
+package com.platform.cloud.model.base;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 /**
@@ -19,6 +20,7 @@ public abstract class EntityBase{
     /**
      * 逻辑删除
      */
+    @NotNull(message = "[逻辑删除0否1是]不能为空")
     @JsonIgnore
     @TableLogic
     @ApiModelProperty(value = "逻辑删除", hidden = true)

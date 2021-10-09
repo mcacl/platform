@@ -37,6 +37,7 @@ import java.util.*;
 @Component
 @Slf4j
 public class AspectNotes{
+    private final String SPLIT = "===============================";
     public static final ObjectMapper objectMapper;
     /**
      * 换行符
@@ -122,49 +123,49 @@ public class AspectNotes{
     private void printRequestBeforeLog(JoinPoint joinPoint,HttpServletRequest request,String methodDescription,String requestArgsStr,boolean printArg){
 
         // 打印请求相关参数
-        log.info("======================================== START ========================================");
+        log.info(SPLIT + " START- " + SPLIT);
         // 打印请求 url
         log.info("[{}] URL>>{}",request.getMethod(),request.getRequestURL().toString());
         // 打印描述信息
         if(StringUtils.isNotBlank(methodDescription)){
-            log.info("说明>>{}",methodDescription);
+            log.info("描述>>{}",methodDescription);
         }
         // 打印调用 controller 的全路径以及执行方法
-        log.info("ClassMethod: {}#{}",joinPoint.getSignature().getDeclaringTypeName(),joinPoint.getSignature().getName());
+        log.info("ClassMethod>>{}#{}",joinPoint.getSignature().getDeclaringTypeName(),joinPoint.getSignature().getName());
         // 打印请求的 IP
         log.info("IP>>{}",UtilIP.IPOrLocalIP(request.getRemoteAddr()));
         // 打印请求入参
         if(printArg && StringUtils.isNotBlank(requestArgsStr)){
-            log.info("RequestArgs>>{}",requestArgsStr);
+            log.info("Request参数>>{}",requestArgsStr);
         }
     }
 
     private void printMethodBeforeLog(JoinPoint joinPoint,String methodDescription,String logArgStr,boolean printArg){
-        log.info("======================================== METHOD ========================================");
+        log.info(SPLIT + " METHOD " + SPLIT);
         if(StringUtils.isNotBlank(methodDescription)){
-            log.info("说明>>{}",methodDescription);
+            log.info("描述>>{}",methodDescription);
         }
-        log.info("ClassMethod: {}#{}",joinPoint.getSignature().getDeclaringTypeName(),joinPoint.getSignature().getName());
+        log.info("ClassMethod>>{}#{}",joinPoint.getSignature().getDeclaringTypeName(),joinPoint.getSignature().getName());
         if(printArg && StringUtils.isNotBlank(logArgStr)){
-            log.info("MethodArg: {}",logArgStr);
+            log.info("Method参数>>{}",logArgStr);
         }
     }
 
     private void printRequestAfterLog(long consuming,String resultStr,boolean printArg){
-        log.info("用时>> {} ms",consuming);
+        log.info("用时>>{} ms",consuming);
         if(printArg && StringUtils.isNotBlank(resultStr)){
-            log.info("Response返回>>  : {}",resultStr);
+            log.info("Response返回>>{}",resultStr);
         }
 
-        log.info("=========================================== END ===========================================");
+        log.info(SPLIT + " END--- " + SPLIT);
     }
 
     private void printMethodAfterLog(long consuming,String resultStr,boolean printArg){
-        log.info("用时>> {} ms",consuming);
+        log.info("用时>>{} ms",consuming);
         if(printArg){
-            log.info("Method返回>>: {}",resultStr);
+            log.info("Method返回>>{}",resultStr);
         }
-        log.info("=========================================== END ===========================================");
+        log.info(SPLIT + " END--- " + SPLIT);
     }
 
     private String getParamStr(JoinPoint joinPoint,boolean getBodyparam){

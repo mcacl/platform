@@ -23,6 +23,10 @@
     </properties>
     <dependencies>
         <dependency>
+            <groupId>org.platform</groupId>
+            <artifactId>platform-model</artifactId>
+        </dependency>
+        <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-models</artifactId>
         </dependency>

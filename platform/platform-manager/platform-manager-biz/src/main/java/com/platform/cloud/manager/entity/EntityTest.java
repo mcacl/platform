@@ -1,6 +1,6 @@
 package com.platform.cloud.manager.entity;
 
-import com.platform.cloud.common.core.entity.EntityBaseAutoId;
+import com.platform.cloud.model.base.EntityBaseAutoId;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;

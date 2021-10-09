@@ -1,5 +1,6 @@
-package com.platform.cloud.user.entity;
+package com.platform.cloud.model.core;
 
+import com.platform.cloud.model.base.EntityBaseAutoId;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
@@ -14,14 +15,7 @@ import java.time.LocalDateTime;
  * @TableName platform_user
  */
 @Data
-public class PlatformUser implements Serializable{
-
-    /**
-     * id
-     */
-    @NotNull(message = "[id]不能为空")
-    @ApiModelProperty("id")
-    private Integer id;
+public class PlatformUser extends EntityBaseAutoId implements Serializable{
     /**
      * 名称
      */
@@ -83,11 +77,7 @@ public class PlatformUser implements Serializable{
      */
     @ApiModelProperty("上次登录时间")
     private LocalDateTime loginTime;
-    /**
-     * 创建时间
-     */
-    @ApiModelProperty("创建时间")
-    private LocalDateTime createTime;
+
     /**
      * 创建人id
      */
@@ -102,12 +92,6 @@ public class PlatformUser implements Serializable{
     @Length(max = 50, message = "长度需小于50")
     private String createUser;
     /**
-     * 逻辑删除0否1是
-     */
-    @NotNull(message = "[逻辑删除0否1是]不能为空")
-    @ApiModelProperty("逻辑删除0否1是")
-    private Integer isDel;
-    /**
      * 密码密钥
      */
     @NotBlank(message = "[密码密钥]不能为空")
@@ -115,11 +99,6 @@ public class PlatformUser implements Serializable{
     @ApiModelProperty("密码密钥")
     @Length(max = 100, message = "长度需小于100")
     private String secretKey;
-    /**
-     * 更新时间
-     */
-    @ApiModelProperty("更新时间")
-    private LocalDateTime updateTime;
     /**
      * 身份证件
      */

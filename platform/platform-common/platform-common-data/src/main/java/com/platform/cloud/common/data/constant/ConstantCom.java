@@ -21,5 +21,5 @@ public class ConstantCom{
     /**
      * 每页数据最大值限制
      */
-    public static final int default_page_max_size = 10000;
+    public static final int DEFAULT_PAGE_MAX_SIZE = 10000;
 }

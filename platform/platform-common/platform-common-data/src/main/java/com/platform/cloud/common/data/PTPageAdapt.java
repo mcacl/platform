@@ -24,18 +24,18 @@ public class PTPageAdapt{
      * 页码
      */
     @ApiModelProperty(value = "页码[默认:1,起始页码:1]", example = "1")
-    private Integer pageCurrent = 1;
+    private Integer pageCurrent = DEFAULT_PAGE_CURRENT;
 
     /**
      * 每页条数
      */
-    @ApiModelProperty(value = "每页条数[默认:10]", example = "10")
-    private Integer pageSize = 10;
+    @ApiModelProperty(value = "每页条数[默认:15]", example = "15")
+    private Integer pageSize = DEFAULT_PAGE_SIZE;
 
     /**
      * 排序规则
      */
-    @ApiModelProperty(value = "排序规则", notes = "见示例[名称倒序]", hidden = true, example = "[{\"column\":true,\"asc\":false}]")
+    @ApiModelProperty(value = "排序规则", notes = "见示例[名称倒序]", hidden = true, example = "[{\"column\":name,\"asc\":false}]")
     private List<OrderItem> orderList;
 
     public PTPageAdapt(){
@@ -66,8 +66,8 @@ public class PTPageAdapt{
         }else{
             this.pageSize = pageSize;
         }
-        if(this.pageSize > default_page_max_size){
-            throw new Exception(String.format("pageSize过大[1<=%s<=%s]",pageSize,default_page_max_size));
+        if(this.pageSize > DEFAULT_PAGE_MAX_SIZE){
+            throw new Exception(String.format("pageSize过大[1<=%s<=%s]",pageSize,DEFAULT_PAGE_MAX_SIZE));
         }
     }
 }
