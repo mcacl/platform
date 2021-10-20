@@ -35,7 +35,7 @@ public class PTPageAdapt{
     /**
      * 排序规则
      */
-    @ApiModelProperty(value = "排序规则", notes = "见示例[名称倒序]", hidden = true, example = "[{\"column\":name,\"asc\":false}]")
+    @ApiModelProperty(value = "排序规则", notes = "见示例[名称倒序]", example = "[{\"column\":name,\"asc\":false}]")
     private List<OrderItem> orderList;
 
     public PTPageAdapt(){
