@@ -1,4 +1,4 @@
-package com.platform.cloud.model.base;
+package com.platform.cloud.common.core.entity.base;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;

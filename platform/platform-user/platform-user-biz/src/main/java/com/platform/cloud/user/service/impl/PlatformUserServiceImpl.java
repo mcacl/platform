@@ -1,7 +1,7 @@
 package com.platform.cloud.user.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.platform.cloud.model.core.PlatformUser;
+import com.platform.cloud.common.core.entity.systeam.PlatformUser;
 import com.platform.cloud.user.mapper.PlatformUserMapper;
 import com.platform.cloud.user.service.PlatformUserService;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,3 @@ import org.springframework.stereotype.Service;
 public class PlatformUserServiceImpl extends ServiceImpl<PlatformUserMapper,PlatformUser> implements PlatformUserService{
 
 }
-
-
-
-

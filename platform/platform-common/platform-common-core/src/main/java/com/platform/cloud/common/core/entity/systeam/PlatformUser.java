@@ -1,6 +1,6 @@
-package com.platform.cloud.model.core;
+package com.platform.cloud.common.core.entity.systeam;
 
-import com.platform.cloud.model.base.EntityBaseAutoId;
+import com.platform.cloud.common.core.entity.base.EntityBaseAutoId;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;

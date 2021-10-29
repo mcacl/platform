@@ -1,8 +1,8 @@
 package com.platform.cloud.common.data.config;
 
 import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
+import com.platform.cloud.common.core.entity.base.EntityBaseSnowflakeId;
 import com.platform.cloud.common.core.utils.UtilSnowflakeId;
-import com.platform.cloud.model.base.EntityBaseSnowflakeId;
 import lombok.var;
 import org.apache.commons.lang3.StringUtils;
 
