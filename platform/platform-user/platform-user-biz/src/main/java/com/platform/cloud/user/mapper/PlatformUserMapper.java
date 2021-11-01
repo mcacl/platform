@@ -1,7 +1,7 @@
 package com.platform.cloud.user.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.platform.cloud.common.core.entity.systeam.PlatformUser;
+import com.platform.cloud.user.model.PlatformUser;
 
 
 /**

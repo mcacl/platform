@@ -20,7 +20,7 @@ public abstract class EntityBaseAutoId extends EntityBase{
      */
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     @TableId(value = "id", type = IdType.AUTO)
-    @ApiModelProperty("id")
+    @ApiModelProperty(value = "id", required = true)
     @NotNull(message = "[id]不能为空")
     private Long id;
 }

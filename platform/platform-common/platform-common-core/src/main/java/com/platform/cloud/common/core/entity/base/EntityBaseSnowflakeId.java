@@ -15,7 +15,7 @@ public abstract class EntityBaseSnowflakeId extends EntityBase{
      * 应用雪花算法的id
      */
     @TableId(value = "id", type = IdType.ASSIGN_UUID)
-    @ApiModelProperty("雪花id")
+    @ApiModelProperty(value = "雪花id", required = true)
     private String id;
 
     /**
