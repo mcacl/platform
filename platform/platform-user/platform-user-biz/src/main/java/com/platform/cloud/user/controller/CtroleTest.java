@@ -23,15 +23,15 @@ import org.springframework.web.bind.annotation.RestController;
  * 描述:
  */
 @RestController
-@RequestMapping("test")
+@RequestMapping("users")
 @Api(tags = {"测试类"})
 public class CtroleTest{
     @Autowired
     private PlatformUserService userService;
 
-    @ApiOperation("测试接口")
+    @Notes
+    @ApiOperation("用户列表")
     @PostMapping("pagePlatformUser")
-    @Notes("用户列表 pmc")
     public PResponse<PTPage<PlatformUser>> pagePlatformUser(@RequestBody ParamUser param){
         var res = userService.page(param.buildPage(),new LambdaQueryWrapper<PlatformUser>().like(StringUtils.isNotEmpty(param.getName()),PlatformUser::getName,param.getName()));
         return PResponse.data(PTPage.BuildPTPage(res));

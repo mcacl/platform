@@ -1,0 +1,31 @@
+server:
+  port: 10020
+spring:
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      config:
+        namespace: e169fbcf-c59c-49be-bdac-99162d9a6fc4
+  datasource:
+    dynamic:
+      datasource:
+        master:
+          url: jdbc:mysql://localhost:3306/platform_core?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowMultiQueries=true&zeroDateTimeBehavior=CONVERT_TO_NULL
+          username: root
+          password: root
+          driver-class-name: com.mysql.cj.jdbc.Driver
+        testdb:
+          url: jdbc:mysql://localhost:3306/platform_core?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowMultiQueries=true&zeroDateTimeBehavior=CONVERT_TO_NULL
+          username: root
+          password: root
+          driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: localhost
+    port: 6379
+#  kafka:
+#    bootstrap-servers: localhost:8620
+#admin:
+#  token-ttl: 3600
+#xxl.job:
+#  admin:
+#    addresses: "http://localhost:8085/xxl-job-admin"

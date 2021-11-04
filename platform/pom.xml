@@ -14,6 +14,7 @@
         <module>platform-applets</module>
         <module>platform-getway</module>
         <module>platform-user</module>
+        <module>platform-base</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
