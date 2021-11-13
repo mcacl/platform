@@ -1,6 +1,6 @@
 package com.platform.cloud.user.model;
 
-import com.platform.cloud.common.core.entity.base.EntityBaseSnowflakeId;
+import com.platform.cloud.common.core.entity.base.BaseEntitySnowflakeId;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
  * @TableName platform_user
  */
 @Data
-public class PlatformUser extends EntityBaseSnowflakeId implements Serializable{
+public class PlatformUser extends BaseEntitySnowflakeId implements Serializable{
 
     /** 名称 */
     @NotBlank(message = "[名称]不能为空")

@@ -46,15 +46,18 @@ public class ConfigMybatisPlus{
         return new MetaObjectHandler(){
             @Override
             public void insertFill(MetaObject metaObject){
-                log.debug("开始插入数据前填充制定数据----");
-                strictInsertFill(metaObject,"createTime",LocalDateTime.class,LocalDateTime.now());
-                strictInsertFill(metaObject,"updateTime",LocalDateTime.class,LocalDateTime.now());
+                if(metaObject.hasSetter("createTime")){
+                    log.info("开始插入数据前填充制定数据createTime----");
+                    strictInsertFill(metaObject,"createTime",LocalDateTime.class,LocalDateTime.now());
+                }
             }
 
             @Override
             public void updateFill(MetaObject metaObject){
-                log.debug("开始更新数据前填充制定数据----");
-                this.strictUpdateFill(metaObject,"updateTime",LocalDateTime.class,LocalDateTime.now());
+                if(metaObject.hasSetter("updateTime")){
+                    log.info("开始更新数据前填充制定数据updateTime----");
+                    this.strictUpdateFill(metaObject,"updateTime",LocalDateTime.class,LocalDateTime.now());
+                }
             }
         };
     }

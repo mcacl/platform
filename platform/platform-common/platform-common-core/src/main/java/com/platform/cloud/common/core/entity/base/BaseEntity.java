@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
  * 描述:基类实体
  */
 @Data
-public abstract class EntityBase{
+public abstract class BaseEntity{
     /**
      * 逻辑删除
      */

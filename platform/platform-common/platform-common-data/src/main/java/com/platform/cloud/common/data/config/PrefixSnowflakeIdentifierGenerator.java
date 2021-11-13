@@ -1,7 +1,7 @@
 package com.platform.cloud.common.data.config;
 
 import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
-import com.platform.cloud.common.core.entity.base.EntityBaseSnowflakeId;
+import com.platform.cloud.common.core.entity.base.BaseEntitySnowflakeId;
 import com.platform.cloud.common.core.utils.UtilSnowflakeId;
 import lombok.var;
 import org.apache.commons.lang3.StringUtils;
@@ -19,8 +19,8 @@ public class PrefixSnowflakeIdentifierGenerator implements IdentifierGenerator{
 
     @Override
     public String nextUUID(Object entity){
-        if(entity instanceof EntityBaseSnowflakeId){
-            var v2 = (EntityBaseSnowflakeId) entity;
+        if(entity instanceof BaseEntitySnowflakeId){
+            var v2 = (BaseEntitySnowflakeId) entity;
             var sb = new StringBuilder();
 
             var prefix = v2.idPrefix();

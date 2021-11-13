@@ -2,7 +2,7 @@ package com.platform.cloud.user.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.platform.cloud.common.core.aspect.notes.Notes;
-import com.platform.cloud.common.core.entity.PResponse;
+import com.platform.cloud.common.core.entity.PTResponse;
 import com.platform.cloud.common.data.PTPage;
 import com.platform.cloud.user.model.PlatformUser;
 import com.platform.cloud.user.param.ParamUser;
@@ -25,16 +25,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("users")
 @Api(tags = {"测试类"})
-public class CtroleTest{
+public class CtrlTest{
     @Autowired
     private PlatformUserService userService;
 
     @Notes
     @ApiOperation("用户列表")
     @PostMapping("pagePlatformUser")
-    public PResponse<PTPage<PlatformUser>> pagePlatformUser(@RequestBody ParamUser param){
+    public PTResponse<PTPage<PlatformUser>> pagePlatformUser(@RequestBody ParamUser param){
         var res = userService.page(param.buildPage(),new LambdaQueryWrapper<PlatformUser>().like(StringUtils.isNotEmpty(param.getName()),PlatformUser::getName,param.getName()));
-        return PResponse.data(PTPage.BuildPTPage(res));
+        return PTResponse.data(PTPage.BuildPTPage(res));
     }
 
 }

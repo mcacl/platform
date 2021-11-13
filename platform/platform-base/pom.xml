@@ -12,7 +12,7 @@
     <artifactId>platform-base</artifactId>
     <packaging>pom</packaging>
     <name>platform-base</name>
-    <description>基础服务</description>
+    <description>基础公共服务</description>
     <modules>
         <module>platform-base-api</module>
         <module>platform-base-biz</module>

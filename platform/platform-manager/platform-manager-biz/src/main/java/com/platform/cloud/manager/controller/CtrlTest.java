@@ -1,6 +1,5 @@
 package com.platform.cloud.manager.controller;
 
-import com.platform.cloud.manager.entity.EntityTest;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,11 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("test")
 @Api(tags = {"测试类"})
-public class CtroleTest{
+public class CtrlTest{
     @ApiOperation("测试接口")
     @PostMapping("getTest")
-    public EntityTest getTest(){
-        EntityTest test = new EntityTest(1l,"小明");
-        return test;
+    public void getTest(){
+
     }
 }

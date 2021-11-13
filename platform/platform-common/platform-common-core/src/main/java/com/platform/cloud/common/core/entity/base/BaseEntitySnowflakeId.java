@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
  * 创建人:pmc
  * 描述:雪花uuid基类实体
  */
-public abstract class EntityBaseSnowflakeId extends EntityBase{
+public abstract class BaseEntitySnowflakeId extends BaseEntity{
     /**
      * 应用雪花算法的id
      */

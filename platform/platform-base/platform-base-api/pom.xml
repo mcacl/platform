@@ -10,4 +10,5 @@
     <modelVersion>4.0.0</modelVersion>
     
     <artifactId>platform-base-api</artifactId>
+    <description></description>
 </project>

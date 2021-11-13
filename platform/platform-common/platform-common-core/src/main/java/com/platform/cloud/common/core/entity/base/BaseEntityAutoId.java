@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
  * 描述:自增id基类实体
  */
 @Data
-public abstract class EntityBaseAutoId extends EntityBase{
+public abstract class BaseEntityAutoId extends BaseEntity{
     /**
      * 数据库自增id
      */
