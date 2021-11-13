@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.platform.cloud.base.mapper.SysRegionMapper">
+    <sql id="Base_Column_List">
+        id
+        ,region_code,region_name,
+        parent_code,simple_name,region_level,
+        city_code,zip_code,mer_name,
+        lgn,lat,pin_yin,
+        create_time,update_time,is_del
+    </sql>
+</mapper>

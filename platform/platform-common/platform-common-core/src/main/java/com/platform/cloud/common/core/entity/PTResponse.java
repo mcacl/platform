@@ -1,6 +1,7 @@
 package com.platform.cloud.common.core.entity;
 
 import cn.hutool.core.text.StrFormatter;
+import com.platform.cloud.common.core.constant.fallback.ConstantFallBack;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -71,6 +72,15 @@ public class PTResponse<DATA> implements Serializable{
         PTResponse<DATA> failed = new PTResponse<>();
         failed.setStatus(false);
         failed.setStatusCode(1);
+        return failed;
+    }
+
+    /** 熔断用 调用失败 */
+    public static <DATA> PTResponse<DATA> fallBackfailed(){
+        PTResponse<DATA> failed = new PTResponse<>();
+        failed.setStatus(false);
+        failed.setStatusCode(ConstantFallBack.FALLBACK_FAILED_CODE);
+        failed.setStatusMessage(ConstantFallBack.FALLBACK_FAILED_MSG);
         return failed;
     }
 

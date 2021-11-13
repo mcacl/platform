@@ -10,5 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
     
     <artifactId>platform-base-api</artifactId>
-    <description></description>
+    <dependencies>
+        <dependency>
+            <groupId>org.platform</groupId>
+            <artifactId>platform-common-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+    </dependencies>
 </project>

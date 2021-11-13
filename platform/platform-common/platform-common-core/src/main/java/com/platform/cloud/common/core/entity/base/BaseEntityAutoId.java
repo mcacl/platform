@@ -6,8 +6,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
-
 /**
  * 创建时间:2021/9/7 0007
  * 创建人:pmc
@@ -21,6 +19,5 @@ public abstract class BaseEntityAutoId extends BaseEntity{
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     @TableId(value = "id", type = IdType.AUTO)
     @ApiModelProperty(value = "id", required = true)
-    @NotNull(message = "[id]不能为空")
     private Long id;
 }

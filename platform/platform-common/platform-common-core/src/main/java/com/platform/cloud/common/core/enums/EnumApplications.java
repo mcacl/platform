@@ -31,6 +31,7 @@ public enum EnumApplications{
     public static final String NAME_APPLETS = "platform-applets-biz";
     public static final String NAME_GETWAY = "platform-getway-biz";
     public static final String NAME_MANAGER = "platform-manager-biz";
+    public static final String NAME_BASE = "platform-base-biz";
     private String applicationName;
     private String prifix;
 
