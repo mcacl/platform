@@ -11,7 +11,7 @@ import java.util.Set;
  * 描述:
  */
 @Data
-public class ParamQueryDict{
+public class ParamQueryDic{
     @ApiModelProperty(value = "父级id")
     private Set<Long> pids;
     @ApiModelProperty(value = "是否查询子节点", required = true)

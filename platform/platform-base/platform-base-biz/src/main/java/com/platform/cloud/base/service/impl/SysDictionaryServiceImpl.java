@@ -4,8 +4,9 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.platform.cloud.base.mapper.SysDictionaryMapper;
 import com.platform.cloud.base.model.SysDictionary;
-import com.platform.cloud.base.param.ParamQueryDict;
+import com.platform.cloud.base.param.ParamQueryDic;
 import com.platform.cloud.base.service.SysDictionaryService;
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
 @Service
 public class SysDictionaryServiceImpl extends ServiceImpl<SysDictionaryMapper,SysDictionary> implements SysDictionaryService{
     @Override
-    public List<SysDictionary> queryDictionary(ParamQueryDict param){
+    public List<SysDictionary> queryDictionary(ParamQueryDic param){
         List<SysDictionary> list = baseMapper.selectList(new LambdaQueryWrapper<SysDictionary>().in(SysDictionary::getPId,param.getPids()));
         if(param.isIncludeChildren()){
             queryDic(list);//查子节点
@@ -32,5 +33,16 @@ public class SysDictionaryServiceImpl extends ServiceImpl<SysDictionaryMapper,Sy
                 }
             }
         });
+    }
+
+    @Override
+    public Boolean doDictionary(SysDictionary param){
+        boolean res = false;
+        if(ObjectUtils.isEmpty(param.getId())){
+            res = save(param);
+        }else{
+            res = updateById(param);
+        }
+        return res;
     }
 }

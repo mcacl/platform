@@ -54,6 +54,6 @@ public class SysDictionary extends BaseEntityAutoId implements Serializable{
     private Long belongSystem;
 
     @TableField(exist = false)
-    @ApiModelProperty("子节点")
+    @ApiModelProperty("子节点 不传参数")
     private List<SysDictionary> children;
 }

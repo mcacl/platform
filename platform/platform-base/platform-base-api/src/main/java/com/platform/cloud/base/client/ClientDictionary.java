@@ -2,7 +2,7 @@ package com.platform.cloud.base.client;
 
 import com.platform.cloud.base.model.SysDictionary;
 import com.platform.cloud.base.model.SysRegion;
-import com.platform.cloud.base.param.ParamQueryDict;
+import com.platform.cloud.base.param.ParamQueryDic;
 import com.platform.cloud.base.param.ParamQueryRegion;
 import com.platform.cloud.common.core.entity.PTResponse;
 import com.platform.cloud.common.core.enums.EnumApplications;
@@ -28,7 +28,7 @@ public interface ClientDictionary{
 
     //@ApiOperation("字典查询")
     @PostMapping("queryDictionary")
-    public PTResponse<List<SysDictionary>> queryDictionary(@RequestBody @Validated ParamQueryDict param);
+    public PTResponse<List<SysDictionary>> queryDictionary(@RequestBody @Validated ParamQueryDic param);
 
     //@ApiOperation("地区查询")
     @PostMapping("queryRegion")
