@@ -1,4 +1,4 @@
-package com.platform.cloud.getway.config.swagger;
+package com.platform.cloud.provide.config;
 
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,15 +32,27 @@ public class ConfigSwagger{
     @Autowired
     private ApplicationContext applicationContext;
 
+    private String getGroup(){
+        return applicationContext.getEnvironment().getProperty("project.name");
+    }
+
+    private String getVersion(){
+        return applicationContext.getEnvironment().getProperty("project.version");
+    }
+
+    private String getDescription(){
+        return applicationContext.getEnvironment().getProperty("project.description");
+    }
+
     @Bean(value = "docket")
     public Docket docket(){
-        Docket docket = new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).groupName("platform-getway").select().apis(RequestHandlerSelectors.withClassAnnotation(Api.class)).paths(PathSelectors.any()).build().securitySchemes(securitySchemes());
+        Docket docket = new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).groupName(getGroup()).select().apis(RequestHandlerSelectors.withClassAnnotation(Api.class)).paths(PathSelectors.any()).build().securitySchemes(securitySchemes());
         return docket;
     }
 
     // 生成接口信息
     private ApiInfo apiInfo(){
-        return new ApiInfoBuilder().title("platform网关").description(applicationContext.getEnvironment().getProperty("project.name")).version(applicationContext.getEnvironment().getProperty("project.version")).build();
+        return new ApiInfoBuilder().title(getGroup()).description(getDescription()).version(getVersion()).build();
     }
 
     private List<SecurityScheme> securitySchemes(){

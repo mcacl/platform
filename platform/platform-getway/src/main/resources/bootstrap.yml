@@ -19,6 +19,9 @@ spring:
           - data-id: ${spring.application.name}.${spring.cloud.nacos.config.file-extension}
             refresh: true
     gateway:
+      discovery:
+        locator:
+          enabled: true
       routes:
         - id: platform-applets
           uri: lb://platform-applets-biz
@@ -32,6 +35,11 @@ spring:
           uri: lb://platform-user-biz
           predicates:
             - Path=/platform-user-biz/**
+        - id: platform-base
+          uri: lb://platform-base-biz
+          predicates:
+            - Path=/platform-base-biz/**
+
       default-filters:
         # 过滤重复的请求头
         # https://cloud.spring.io/spring-cloud-gateway/reference/html/#_deduperesponseheader_gatewayfilter_factory
@@ -101,12 +109,3 @@ logging:
 #knife4j.nacos.routes.routeAuth.enable:是否启用Basic验证
 #knife4j.nacos.routes.routeAuth.usernae:Basic用户名
 #knife4j.nacos.routes.routeAuth.password:Basic密码
-mybatis-plus:
-  global-config:
-    db-config:
-      logic-delete-field: is_del
-      logic-delete-value: 1
-      logic-not-delete-value: 0
-  configuration:
-    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
-    map-underscore-to-camel-case: true
