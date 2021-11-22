@@ -13,13 +13,6 @@
     <description>核心公共依赖</description>
     <packaging>jar</packaging>
     <properties>
-        <spring-boot-test>${spring-boot.version}</spring-boot-test>
-        <spring-boot-json>${spring-boot.version}</spring-boot-json>
-        <spring-boot-aop>${spring-boot.version}</spring-boot-aop>
-        <spring-boot-validation>${spring-boot.version}</spring-boot-validation>
-        <spring-boot-autoconfigure>${spring-boot.version}</spring-boot-autoconfigure>
-        <redisson-spring-boot>${redisson-spring-boot-starter}</redisson-spring-boot>
-        <feign-core>${open-feign-core}</feign-core>
     </properties>
     <dependencies>
         <dependency>
