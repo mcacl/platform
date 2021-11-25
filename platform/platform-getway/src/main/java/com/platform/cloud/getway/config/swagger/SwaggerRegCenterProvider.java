@@ -24,6 +24,7 @@ import java.util.Map;
 @Component
 public class SwaggerRegCenterProvider implements SwaggerResourcesProvider{
     private static final String API_URI = "/v2/api-docs";
+    private static final String API_PARAM = "?group=";
     private final RouteDefinitionRepository routeDefinitionRepository;
     private final DiscoveryClient discoveryClient;
     @Autowired
@@ -51,12 +52,12 @@ public class SwaggerRegCenterProvider implements SwaggerResourcesProvider{
         List<SwaggerResource> routes = new ArrayList<>();
         Map<String,List<ServiceInstance>> list = getServer();
         list.forEach((key,val)->{
-            String project = applicationContext.getEnvironment().getProperty("project.name");
-            if(!key.equals(project)){
-                String name = key.replace("-biz","");
-                String uri = "/" + key + API_URI;
-                routes.add(swaggerResource(name,uri));
+            String name = key;
+            String uri = "/" + key + API_URI + API_PARAM + key;
+            if(key.contains("-biz")){
+                name = key.replace("-biz","");
             }
+            routes.add(swaggerResource(name,uri));
         });
         return routes;
     }

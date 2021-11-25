@@ -34,13 +34,13 @@ public class ConfigSwagger{
 
     @Bean(value = "docket")
     public Docket docket(){
-        Docket docket = new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).groupName("platform-getway").select().apis(RequestHandlerSelectors.withClassAnnotation(Api.class)).paths(PathSelectors.any()).build().securitySchemes(securitySchemes());
+        Docket docket = new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).groupName(applicationContext.getEnvironment().getProperty("project.name")).select().apis(RequestHandlerSelectors.withClassAnnotation(Api.class)).paths(PathSelectors.any()).build().securitySchemes(securitySchemes());
         return docket;
     }
 
     // 生成接口信息
     private ApiInfo apiInfo(){
-        return new ApiInfoBuilder().title("platform网关").description(applicationContext.getEnvironment().getProperty("project.name")).version(applicationContext.getEnvironment().getProperty("project.version")).build();
+        return new ApiInfoBuilder().title("platform网关").description(applicationContext.getEnvironment().getProperty("project.description")).version(applicationContext.getEnvironment().getProperty("project.version")).build();
     }
 
     private List<SecurityScheme> securitySchemes(){

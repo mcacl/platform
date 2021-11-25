@@ -28,7 +28,7 @@
         <spring-cloud.version>3.0.3</spring-cloud.version>
         <spring-boot.version>2.3.5.RELEASE</spring-boot.version>
         <nacosconfig-springboot-autoconfigure.version>0.2.10</nacosconfig-springboot-autoconfigure.version>
-        <spring-cloud-alibaba>2021.1</spring-cloud-alibaba>
+        <spring-cloud-alibaba>2.2.6.RELEASE</spring-cloud-alibaba>
         <fastjson.version>1.2.78</fastjson.version>
         <knife4j.version>3.0.3</knife4j.version>
         <redisson-spring-boot-starter>3.15.0</redisson-spring-boot-starter>

@@ -19,9 +19,9 @@ spring:
           - data-id: ${spring.application.name}.${spring.cloud.nacos.config.file-extension}
             refresh: true
     gateway:
-      discovery:
-        locator:
-          enabled: true
+#      discovery:
+      #        locator:
+      #          enabled: true
       routes:
         - id: platform-applets
           uri: lb://platform-applets-biz
@@ -35,11 +35,10 @@ spring:
           uri: lb://platform-user-biz
           predicates:
             - Path=/platform-user-biz/**
-        - id: platform-base
+        - id: platform-base-biz
           uri: lb://platform-base-biz
           predicates:
             - Path=/platform-base-biz/**
-
       default-filters:
         # 过滤重复的请求头
         # https://cloud.spring.io/spring-cloud-gateway/reference/html/#_deduperesponseheader_gatewayfilter_factory
