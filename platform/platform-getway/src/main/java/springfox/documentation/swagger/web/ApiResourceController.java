@@ -65,26 +65,4 @@ public class ApiResourceController{
     public ResponseEntity<List<SwaggerResource>> swaggerResources(){
         return new ResponseEntity<>(swaggerResources.get(),HttpStatus.OK);
     }
-    /*@Autowired
-    public ApiResourceController(@Qualifier("inMemorySwaggerResourcesProvider") SwaggerResourcesProvider swaggerResources){
-        this.swaggerResources = swaggerResources;
-        String swaggerUiBaseUrl = "gateway";
-        this.uiConfiguration = UiConfigurationBuilder.builder().copyOf(this.uiConfiguration).swaggerUiBaseUrl(StringUtils.trimTrailingCharacter(swaggerUiBaseUrl,'/')).build();
-        this.securityConfiguration = SecurityConfigurationBuilder.builder().copyOf(this.securityConfiguration).build();
-    }
-
-    @GetMapping(value = {"/configuration/security"}, produces = {"application/json"})
-    public ResponseEntity<SecurityConfiguration> securityConfiguration(){
-        return new ResponseEntity(this.securityConfiguration,HttpStatus.OK);
-    }
-
-    @GetMapping(value = {"/configuration/ui"}, produces = {"application/json"})
-    public ResponseEntity<UiConfiguration> uiConfiguration(){
-        return new ResponseEntity(this.uiConfiguration,HttpStatus.OK);
-    }
-
-    @GetMapping(produces = {"application/json"})
-    public ResponseEntity<List<SwaggerResource>> swaggerResources(){
-        return new ResponseEntity((List) this.swaggerResources.get(),HttpStatus.OK);
-    }*/
 }

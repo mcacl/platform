@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 import springfox.documentation.swagger.web.SwaggerResource;
 import springfox.documentation.swagger.web.SwaggerResourcesProvider;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -49,9 +49,10 @@ public class SwaggerRegCenterProvider implements SwaggerResourcesProvider{
         /*List<RouteDefinition> routes = new ArrayList<>();
         routeDefinitionRepository.getRouteDefinitions().subscribe(routes::add);
         return routes.stream().flatMap(routeDefinition->routeDefinition.getPredicates().stream().filter(predicateDefinition->"Path".equalsIgnoreCase(predicateDefinition.getName())).map(predicateDefinition->swaggerResource(routeDefinition.getId(),predicateDefinition.getArgs().get(NameUtils.GENERATED_NAME_PREFIX + "0").replace("/**",API_URI)))).sorted(Comparator.comparing(SwaggerResource::getName)).collect(Collectors.toList());*/
-        List<SwaggerResource> routes = new ArrayList<>();
+        List<SwaggerResource> routes = new LinkedList<>();
         Map<String,List<ServiceInstance>> list = getServer();
         String getway = applicationContext.getEnvironment().getProperty("project.name");
+        SwaggerResource getways;
         list.forEach((key,val)->{
             String name = key;
             String uri = "/" + key + API_URI + API_PARAM + key;

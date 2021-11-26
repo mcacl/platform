@@ -39,25 +39,6 @@ public class ControllerSwagger{
     @Autowired(required = false)
     private UiConfiguration uiConfiguration;
 
-    /*@GetMapping("/configuration/security")
-    public Mono<SecurityConfiguration> securityConfiguration(){
-        return Mono.just(Optional.ofNullable(securityConfiguration).orElse(SecurityConfigurationBuilder.builder().build()));
-    }
-
-    @GetMapping("/configuration/ui")
-    public Mono<UiConfiguration> uiConfiguration(){
-        return Mono.just(Optional.ofNullable(uiConfiguration).orElse(UiConfigurationBuilder.builder().build()));
-    }
-
-    @SuppressWarnings("rawtypes")
-    @GetMapping
-    public Mono<List<SwaggerResource>> swaggerResources(){
-        //inMemoryProvider,ymlProvider,regCenterProvider
-        //去注册中心已注册的服务
-        Mono<List<SwaggerResource>> res = Mono.just(Stream.of(inMemoryProvider,regCenterProvider).flatMap(swaggerResourcesProvider->swaggerResourcesProvider.get().stream()).collect(Collectors.toList()));
-        return res;
-    }*/
-
     @GetMapping("/configuration/security")
     public Mono<ResponseEntity<SecurityConfiguration>> securityConfiguration(){
         return Mono.just(new ResponseEntity<>(Optional.ofNullable(securityConfiguration).orElse(SecurityConfigurationBuilder.builder().build()),HttpStatus.OK));
@@ -71,6 +52,5 @@ public class ControllerSwagger{
     @GetMapping("")
     public Mono<ResponseEntity> swaggerResources(){
         return Mono.just((new ResponseEntity<>(Stream.of(inMemoryProvider,regCenterProvider).flatMap(swaggerResourcesProvider->swaggerResourcesProvider.get().stream()).collect(Collectors.toList()),HttpStatus.OK)));
-        //return Mono.just(new ResponseEntity(regCenterProvider.get(),HttpStatus.OK));
     }
 }
