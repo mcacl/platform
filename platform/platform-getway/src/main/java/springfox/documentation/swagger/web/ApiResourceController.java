@@ -24,16 +24,16 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.List;
 
+import static java.util.Optional.ofNullable;
+
 @Controller
 @ApiIgnore
-//@RequestMapping("/gateway/swagger-resources")
 @RequestMapping("gateway/swagger-resources")
 public class ApiResourceController{
 
@@ -43,7 +43,7 @@ public class ApiResourceController{
     @Autowired(required = false)
     private UiConfiguration uiConfiguration;
 
-    /*@Autowired
+    @Autowired
     public ApiResourceController(@Qualifier("inMemorySwaggerResourcesProvider") SwaggerResourcesProvider swaggerResources){
         this.swaggerResources = swaggerResources;
     }
@@ -64,8 +64,8 @@ public class ApiResourceController{
     @ResponseBody
     public ResponseEntity<List<SwaggerResource>> swaggerResources(){
         return new ResponseEntity<>(swaggerResources.get(),HttpStatus.OK);
-    }*/
-    @Autowired
+    }
+    /*@Autowired
     public ApiResourceController(@Qualifier("inMemorySwaggerResourcesProvider") SwaggerResourcesProvider swaggerResources){
         this.swaggerResources = swaggerResources;
         String swaggerUiBaseUrl = "gateway";
@@ -86,5 +86,5 @@ public class ApiResourceController{
     @GetMapping(produces = {"application/json"})
     public ResponseEntity<List<SwaggerResource>> swaggerResources(){
         return new ResponseEntity((List) this.swaggerResources.get(),HttpStatus.OK);
-    }
+    }*/
 }

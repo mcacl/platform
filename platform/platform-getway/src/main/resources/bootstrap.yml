@@ -19,9 +19,9 @@ spring:
           - data-id: ${spring.application.name}.${spring.cloud.nacos.config.file-extension}
             refresh: true
     gateway:
-#      discovery:
-      #        locator:
-      #          enabled: true
+      discovery:
+        locator:
+          enabled: true
       routes:
         - id: platform-applets
           uri: lb://platform-applets-biz

@@ -23,19 +23,19 @@ public class PTPageAdapt{
     /**
      * 页码
      */
-    @ApiModelProperty(value = "页码[默认:1,起始页码:1]", example = "1")
+    @ApiModelProperty(value = "页码[默认:1,起始页码:1]")
     private Integer pageCurrent = DEFAULT_PAGE_CURRENT;
 
     /**
      * 每页条数
      */
-    @ApiModelProperty(value = "每页条数[默认:15]", example = "15")
+    @ApiModelProperty(value = "每页条数[默认:15]")
     private Integer pageSize = DEFAULT_PAGE_SIZE;
 
     /**
      * 排序规则
      */
-    @ApiModelProperty(value = "排序规则", notes = "见示例[名称倒序]", example = "[{\"column\":name,\"asc\":false}]")
+    @ApiModelProperty(value = "排序规则", notes = "示例[名称倒序]", example = "\"[{column:name,asc:false}]\"")
     private List<OrderItem> orderList;
 
     public PTPageAdapt(){

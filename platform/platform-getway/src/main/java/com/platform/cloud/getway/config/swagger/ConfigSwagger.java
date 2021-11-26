@@ -46,7 +46,6 @@ public class ConfigSwagger{
     private List<SecurityScheme> securitySchemes(){
         List<SecurityScheme> apiKeyList = new ArrayList<>();
         apiKeyList.add(new ApiKey("Authorization","认证参数","header"));
-        //return apiKeyList.stream().collect(Collectors.toList());
         return apiKeyList;
     }
 }

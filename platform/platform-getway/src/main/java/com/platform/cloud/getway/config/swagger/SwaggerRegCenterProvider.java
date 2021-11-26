@@ -51,13 +51,16 @@ public class SwaggerRegCenterProvider implements SwaggerResourcesProvider{
         return routes.stream().flatMap(routeDefinition->routeDefinition.getPredicates().stream().filter(predicateDefinition->"Path".equalsIgnoreCase(predicateDefinition.getName())).map(predicateDefinition->swaggerResource(routeDefinition.getId(),predicateDefinition.getArgs().get(NameUtils.GENERATED_NAME_PREFIX + "0").replace("/**",API_URI)))).sorted(Comparator.comparing(SwaggerResource::getName)).collect(Collectors.toList());*/
         List<SwaggerResource> routes = new ArrayList<>();
         Map<String,List<ServiceInstance>> list = getServer();
+        String getway = applicationContext.getEnvironment().getProperty("project.name");
         list.forEach((key,val)->{
             String name = key;
             String uri = "/" + key + API_URI + API_PARAM + key;
             if(key.contains("-biz")){
                 name = key.replace("-biz","");
             }
-            routes.add(swaggerResource(name,uri));
+            if(!key.equals(getway)){
+                routes.add(swaggerResource(name,uri));
+            }
         });
         return routes;
     }

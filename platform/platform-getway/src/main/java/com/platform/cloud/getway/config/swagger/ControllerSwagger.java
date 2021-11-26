@@ -11,6 +11,8 @@ import reactor.core.publisher.Mono;
 import springfox.documentation.swagger.web.*;
 
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * 创建时间:2021/9/3 0003
@@ -68,7 +70,7 @@ public class ControllerSwagger{
 
     @GetMapping("")
     public Mono<ResponseEntity> swaggerResources(){
-        //return Mono.just((new ResponseEntity<>(Stream.of(regCenterProvider).flatMap(swaggerResourcesProvider->swaggerResourcesProvider.get().stream()).collect(Collectors.toList()),HttpStatus.OK)));
-        return Mono.just(new ResponseEntity(regCenterProvider.get(),HttpStatus.OK));
+        return Mono.just((new ResponseEntity<>(Stream.of(inMemoryProvider,regCenterProvider).flatMap(swaggerResourcesProvider->swaggerResourcesProvider.get().stream()).collect(Collectors.toList()),HttpStatus.OK)));
+        //return Mono.just(new ResponseEntity(regCenterProvider.get(),HttpStatus.OK));
     }
 }
