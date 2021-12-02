@@ -14,7 +14,6 @@ CREATE TABLE `sys_region`
     `pin_yin`      varchar(100) NOT NULL COMMENT '拼音',
     `create_time`  datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     `update_time`  datetime              DEFAULT NULL COMMENT '更新时间',
-    `is_del`       tinyint(1)   NOT NULL DEFAULT '0' COMMENT '是否已删除',
     PRIMARY KEY (`id`),
     UNIQUE KEY `uk_region_code` (`region_code`) USING BTREE COMMENT '区域编码唯一索引',
     KEY `idx_parent_code` (`parent_code`) USING BTREE COMMENT '上级区域编码普通索引'
