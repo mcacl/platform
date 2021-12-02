@@ -80,9 +80,9 @@ management:
 logging:
   file:
     name: debug.log
-    path: /logs/${spring.application.name}/
+    path: platform/logs/${spring.application.name}
   level:
-    "log.level": info
+    "com.platform.cloud": debug
 knife4j:
   enable: true
   cors: true

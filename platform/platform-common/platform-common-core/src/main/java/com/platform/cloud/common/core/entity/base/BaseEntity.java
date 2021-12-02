@@ -2,8 +2,6 @@ package com.platform.cloud.common.core.entity.base;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableLogic;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -16,13 +14,6 @@ import java.time.LocalDateTime;
  */
 @Data
 public abstract class BaseEntity{
-    /**
-     * 逻辑删除
-     */
-    @JsonIgnore
-    @TableLogic
-    @ApiModelProperty(value = "逻辑删除", hidden = true)
-    private Integer isDel;
     /**
      * 数据创建时间
      */

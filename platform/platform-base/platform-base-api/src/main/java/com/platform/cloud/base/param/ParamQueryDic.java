@@ -3,6 +3,7 @@ package com.platform.cloud.base.param;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 /**
@@ -12,6 +13,7 @@ import java.util.Set;
  */
 @Data
 public class ParamQueryDic{
+    @NotNull
     @ApiModelProperty(value = "父级id")
     private Set<Long> pids;
     @ApiModelProperty(value = "是否查询子节点", required = true)

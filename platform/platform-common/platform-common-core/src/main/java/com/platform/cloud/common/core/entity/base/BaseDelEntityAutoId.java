@@ -9,10 +9,10 @@ import lombok.Data;
 /**
  * 创建时间:2021/9/7 0007
  * 创建人:pmc
- * 描述:自增id基类实体
+ * 描述:自增id基类物理删除实体
  */
 @Data
-public abstract class BaseEntityAutoId extends BaseLogicDelEntity{
+public abstract class BaseDelEntityAutoId extends BaseEntity{
     /**
      * 数据库自增id
      */

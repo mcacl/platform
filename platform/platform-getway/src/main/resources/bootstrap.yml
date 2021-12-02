@@ -60,9 +60,10 @@ gateway:
     enable: true
 logging:
   file:
-    name: logs/${spring.application.name}/debug.log
+    name: debug.log
+    path: platform/logs/${spring.application.name}
   level:
-    "log.level": info
+    "com.platform.cloud": debug
 #knife4j:
 #  enableAggregation: true
 #  nacos:

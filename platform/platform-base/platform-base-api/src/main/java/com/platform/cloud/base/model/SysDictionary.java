@@ -1,7 +1,7 @@
 package com.platform.cloud.base.model;
 
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.platform.cloud.common.core.entity.base.BaseEntityAutoId;
+import com.platform.cloud.common.core.entity.base.BaseDelEntityAutoId;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -15,7 +15,7 @@ import java.util.List;
  * @TableName sys_dictionary
  */
 @Data
-public class SysDictionary extends BaseEntityAutoId implements Serializable{
+public class SysDictionary extends BaseDelEntityAutoId implements Serializable{
 
     /** 父节点id */
     @ApiModelProperty(value = "父节点id")

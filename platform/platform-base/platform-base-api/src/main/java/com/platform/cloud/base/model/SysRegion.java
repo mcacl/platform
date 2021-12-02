@@ -1,6 +1,6 @@
 package com.platform.cloud.base.model;
 
-import com.platform.cloud.common.core.entity.base.BaseEntityAutoId;
+import com.platform.cloud.common.core.entity.base.BaseDelEntityAutoId;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -13,7 +13,7 @@ import java.io.Serializable;
  * @TableName sys_region
  */
 @Data
-public class SysRegion extends BaseEntityAutoId implements Serializable{
+public class SysRegion extends BaseDelEntityAutoId implements Serializable{
 
     /** 区域编码 */
     @NotBlank(message = "[区域编码]不能为空")

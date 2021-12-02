@@ -8,9 +8,9 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * 创建时间:2021/9/7 0007
  * 创建人:pmc
- * 描述:雪花uuid基类实体
+ * 描述:雪花uuid基类物理删除实体
  */
-public abstract class BaseEntitySnowflakeId extends BaseLogicDelEntity{
+public abstract class BaseDelEntitySnowflakeId extends BaseEntity{
     /**
      * 应用雪花算法的id
      */

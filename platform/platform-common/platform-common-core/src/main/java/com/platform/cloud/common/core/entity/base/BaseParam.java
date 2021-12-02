@@ -13,6 +13,6 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class BaseParam{
     @NotBlank(message = "关键值不能空")
-    @ApiModelProperty("关键值")
+    @ApiModelProperty(value = "关键值", required = true)
     private String key;
 }
