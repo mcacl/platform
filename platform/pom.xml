@@ -15,6 +15,7 @@
         <module>platform-getway</module>
         <module>platform-user</module>
         <module>platform-base</module>
+        <module>platform-monitor</module>
     </modules>
     <properties>
         <project.common.config>common</project.common.config>

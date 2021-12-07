@@ -1,0 +1,8 @@
+server:
+  port: 10100
+spring:
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      config:
+        namespace: e169fbcf-c59c-49be-bdac-99162d9a6fc4

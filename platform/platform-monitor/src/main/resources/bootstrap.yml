@@ -1,0 +1,62 @@
+project:
+  name: @project.artifactId@
+  description: @project.description@
+  version: @docker.build.version@
+server:
+  servlet:
+    context-path: /@project.artifactId@
+spring:
+  profiles:
+    active: @profiles.active@
+  application:
+    name: @project.artifactId@
+  cloud:
+    nacos:
+      discovery:
+        metadata:
+          management:
+            context-path: ${server.servlet.context-path}/actuator
+      config:
+        enabled: true
+        file-extension: yml
+        shared-configs:
+          - data-id: @project.common.config@.${spring.cloud.nacos.config.file-extension}
+            refresh: true
+    # 配置boot admin Client连接的安全账号密码
+    security:
+      user:
+        name: admin
+        password: admin
+  boot:
+    admin:
+      ui:
+        title: '[jsk][@profiles.active@]服务状态监控'
+        brand: '<img src="assets/img/icon-spring-boot-admin.svg"><span>云平台状态监控</span>'
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  endpoint:
+#    logfile:
+#      external-file: ${logging.file.path}${logging.file.name}
+#    health:
+#      show-details: ALWAYS
+logging:
+  file:
+    name: debug.log
+    path: platform/logs/${spring.application.name}
+  level:
+    "com.platform.cloud": debug
+    "org.springframework.security": debug
+knife4j:
+  enable: true
+  cors: true
+  setting:
+    swaggerModelName: 出入参对象
+    enableReloadCacheParameter: true
+    enableGroup: false
+feign:
+  sentinel:
+    #SentinelTargeter 写完后改为true启用降级
+    enabled: false
