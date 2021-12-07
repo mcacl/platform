@@ -16,7 +16,7 @@ spring:
         file-extension: yml
         #下面配置读取配置中心配置
         shared-configs:
-          - data-id: ${spring.application.name}.${spring.cloud.nacos.config.file-extension}
+          - data-id: @project.common.config@.${spring.cloud.nacos.config.file-extension}
             refresh: true
     gateway:
       routes:
@@ -58,12 +58,12 @@ gateway:
   #开启链路追踪 默认开启
   trace:
     enable: true
-logging:
-  file:
-    name: debug.log
-    path: platform/logs/${spring.application.name}
-  level:
-    "com.platform.cloud": debug
+#logging:
+#  file:
+#    name: debug.log
+#    path: platform/logs/${spring.application.name}
+#  level:
+#    "com.platform.cloud": debug
 #knife4j:
 #  enableAggregation: true
 #  nacos:
