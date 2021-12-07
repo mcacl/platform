@@ -23,10 +23,10 @@ spring:
           - data-id: @project.common.config@.${spring.cloud.nacos.config.file-extension}
             refresh: true
     # 配置boot admin Client连接的安全账号密码
-    security:
-      user:
-        name: admin
-        password: admin
+  security:
+    user:
+      name: admin
+      password: admin
   boot:
     admin:
       ui:

@@ -33,14 +33,6 @@
                 <artifactId>platform-common-provide</artifactId>
                 <version>${project.version}</version>
             </dependency>
-    
-            <!--druid-->
-            <!-- https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter -->
-            <!--<dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid-spring-boot-starter</artifactId>
-                <version>${druid.version}</version>
-            </dependency>-->
             <dependency>
                 <groupId>com.auth0</groupId>
                 <artifactId>java-jwt</artifactId>
@@ -57,14 +49,6 @@
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid.version}</version>
             </dependency>
-    
-            <!--mybatis-plus-->
-            <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus -->
-            <!--<dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus</artifactId>
-                <version>${mybatis-plus.version}</version>
-            </dependency>-->
             <!--驱动-->
             <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
             <dependency>
