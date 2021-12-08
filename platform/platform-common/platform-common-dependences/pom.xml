@@ -11,7 +11,7 @@
     <description>基础公共依赖</description>
     <properties>
         <project.version>1.0-SNAPSHOT</project.version>
-        
+    
         <java-jwt.version>3.15.0</java-jwt.version>
         <druid.version>1.2.5</druid.version>
         <mybatis-plus.version>3.4.3</mybatis-plus.version>
@@ -20,6 +20,8 @@
         <swagger.version>2.1.9</swagger.version>
         <cglib.version>3.3.0</cglib.version>
         <jasypt.version>3.0.4</jasypt.version>
+        <kafka.version>2.5.7.RELEASE</kafka.version>
+        <xxl-job.version>2.3.0</xxl-job.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -94,7 +96,17 @@
                 <artifactId>cglib</artifactId>
                 <version>${cglib.version}</version>
             </dependency>
-        
+            <dependency>
+                <groupId>org.springframework.kafka</groupId>
+                <artifactId>spring-kafka</artifactId>
+                <version>${kafka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl-job.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
     
