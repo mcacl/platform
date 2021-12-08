@@ -1,0 +1,19 @@
+server:
+  port: 10040
+spring:
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      config:
+        namespace: e169fbcf-c59c-49be-bdac-99162d9a6fc4
+  datasource:
+    url: jdbc:mysql://localhost:3306/platform_core?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowMultiQueries=true&zeroDateTimeBehavior=CONVERT_TO_NULL
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  kafka:
+    bootstrap-servers: localhost:8620
+message:
+  sms:
+    #短信签名
+    signCode: 100

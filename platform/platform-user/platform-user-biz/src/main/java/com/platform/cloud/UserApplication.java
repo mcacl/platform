@@ -11,9 +11,9 @@ import org.springframework.retry.annotation.EnableRetry;
  * 创建人:pmc
  * 描述:
  */
-@MapperScan(basePackages = "com.platform.cloud.user.mapper")
+@MapperScan(basePackages = "com.platform.cloud.*.mapper")
 @EnableRetry
-@EnableFeignClients(basePackages = {"com.platform.cloud.*"})
+@EnableFeignClients()
 @SpringCloudApplication
 public class UserApplication{
     public static void main(String[] args){

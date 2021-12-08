@@ -3,31 +3,24 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>platform-base</artifactId>
+        <artifactId>platform</artifactId>
         <groupId>org.platform</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     
-    <artifactId>platform-base-biz</artifactId>
-    <description>基础服务</description>
+    <artifactId>platform-message</artifactId>
+    <description>消息服务</description>
+    <properties>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.platform</groupId>
             <artifactId>platform-common-provide</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.platform</groupId>
-            <artifactId>platform-common-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.platform</groupId>
-            <artifactId>platform-base-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
         </dependency>
     </dependencies>
     <build>
@@ -36,7 +29,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.platform.cloud.BaseApplication</mainClass>
+                    <mainClass>com.platform.cloud.MessageApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

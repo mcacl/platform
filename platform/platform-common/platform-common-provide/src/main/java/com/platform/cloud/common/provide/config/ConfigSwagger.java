@@ -1,4 +1,4 @@
-package com.platform.cloud.provide.config;
+package com.platform.cloud.common.provide.config;
 
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;

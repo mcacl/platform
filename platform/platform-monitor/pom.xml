@@ -71,7 +71,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.platform.cloud.monitor</mainClass>
+                    <mainClass>com.platform.cloud.MonitorApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

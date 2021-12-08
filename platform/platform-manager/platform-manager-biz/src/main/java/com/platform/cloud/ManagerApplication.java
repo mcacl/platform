@@ -6,9 +6,9 @@ import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.retry.annotation.EnableRetry;
 
-@MapperScan(basePackages = "com.platform.cloud.manager.mapper")
+@MapperScan(basePackages = "com.platform.cloud.*.mapper")
 @EnableRetry
-@EnableFeignClients(basePackages = {"com.platform.cloud.*"})
+@EnableFeignClients()
 @SpringCloudApplication
 public class ManagerApplication{
     public static void main(String[] args){

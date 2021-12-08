@@ -16,6 +16,7 @@
         <module>platform-user</module>
         <module>platform-base</module>
         <module>platform-monitor</module>
+        <module>platform-message</module>
     </modules>
     <properties>
         <project.common.config>common</project.common.config>

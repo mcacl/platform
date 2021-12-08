@@ -9,9 +9,8 @@
     </parent>
     
     <artifactId>platform-getway</artifactId>
-    
-    <description>platform网关</description>
     <name>platform-getway</name>
+    <description>platform网关</description>
     <properties>
     </properties>
     <dependencies>
