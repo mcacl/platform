@@ -32,6 +32,9 @@ spring:
       ui:
         title: '[jsk][@profiles.active@]服务状态监控'
         brand: '<img src="assets/img/icon-spring-boot-admin.svg"><span>云平台状态监控</span>'
+      notify:
+        mail:
+          enabled: false  #关闭admin自带的邮件通知
 #management:
 #  endpoints:
 #    web:
@@ -56,7 +59,3 @@ knife4j:
     swaggerModelName: 出入参对象
     enableReloadCacheParameter: true
     enableGroup: false
-feign:
-  sentinel:
-    #SentinelTargeter 写完后改为true启用降级
-    enabled: false
