@@ -67,22 +67,12 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
     map-underscore-to-camel-case: true
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: "*"
-#  endpoint:
-#    logfile:
-#      external-file: ${logging.file.path}${logging.file.name}
-#    health:
-#      show-details: ALWAYS
-#logging:
-#  file:
-#    name: debug.log
-#    path: platform/logs/${spring.application.name}
-#  level:
-#    "com.platform.cloud": debug
+logging:
+  file:
+    name: debug.log
+    path: platform/logs/${spring.application.name}
+  level:
+    "com.platform.cloud": debug
 knife4j:
   enable: true
   cors: true

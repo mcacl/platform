@@ -26,6 +26,6 @@ spring:
 #    bootstrap-servers: localhost:8620
 #admin:
 #  token-ttl: 3600
-#xxl.job:
-#  admin:
-#    addresses: "http://localhost:8085/xxl-job-admin"
+xxljob:
+  admin:
+    addresses: "http://localhost:11111/xxl-job-admin"

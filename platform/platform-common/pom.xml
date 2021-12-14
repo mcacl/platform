@@ -19,5 +19,6 @@
         <module>platform-common-data</module>
         <module>platform-common-log</module>
         <module>platform-common-message</module>
+        <module>platform-common-xxljob</module>
     </modules>
 </project>
