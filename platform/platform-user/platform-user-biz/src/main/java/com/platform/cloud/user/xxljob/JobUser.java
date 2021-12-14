@@ -13,11 +13,11 @@ import org.springframework.stereotype.Component;
 public class JobUser{
     @XxlJob("jobUser")
     public void jobUser(){
-        String param = XxlJobHelper.getJobParam();
+        String param = XxlJobHelper.getJobParam();//必须用这个获取参数
         XxlJobHelper.log("XXL-JOB, Hello World.{}",param);
         for(int i = 0; i < 5; i++){
-            XxlJobHelper.log("beat at:" + i);
+            XxlJobHelper.log("beat at:" + i);//输出执行过程
         }
-        XxlJobHelper.handleSuccess("任务调度成功");
+        XxlJobHelper.handleSuccess("任务调度成功");//输出备注
     }
 }
