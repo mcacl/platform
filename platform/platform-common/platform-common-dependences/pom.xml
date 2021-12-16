@@ -22,7 +22,6 @@
         <jasypt.version>3.0.4</jasypt.version>
         <kafka.version>2.5.7.RELEASE</kafka.version>
         <xxl-job.version>2.3.0</xxl-job.version>
-        <spring-boot-admin-starter.version>2.3.1</spring-boot-admin-starter.version>
         <spring-boot-configuration-processor.version>2.6.0</spring-boot-configuration-processor.version>
     </properties>
     <dependencyManagement>
@@ -107,18 +106,6 @@
                 <groupId>com.xuxueli</groupId>
                 <artifactId>xxl-job-core</artifactId>
                 <version>${xxl-job.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/de.codecentric/spring-boot-admin-starter-server -->
-            <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-server</artifactId>
-                <version>${spring-boot-admin-starter.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/de.codecentric/spring-boot-admin-client -->
-            <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-client</artifactId>
-                <version>${spring-boot-admin-starter.version}</version>
             </dependency>
             <!--可生成自定义配置的源数据-->
             <dependency>

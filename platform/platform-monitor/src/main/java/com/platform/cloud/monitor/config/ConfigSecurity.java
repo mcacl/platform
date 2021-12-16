@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  * 创建人:pmc
  * 描述:
  */
+
 @Configuration
 public class ConfigSecurity extends WebSecurityConfigurerAdapter{
     @Override
