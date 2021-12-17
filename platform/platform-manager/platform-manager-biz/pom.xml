@@ -7,9 +7,8 @@
         <groupId>org.platform</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+    <name>platform-manager</name>
     <artifactId>platform-manager-biz</artifactId>
-    
-    <name>platform-manager-biz</name>
     <description>platform后台管理服务</description>
     
     <dependencies>

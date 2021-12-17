@@ -8,7 +8,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <name>platform-user-biz</name>
+    <name>platform-user</name>
     <artifactId>platform-user-biz</artifactId>
     <description>platform用户管理服务</description>
     <dependencies>

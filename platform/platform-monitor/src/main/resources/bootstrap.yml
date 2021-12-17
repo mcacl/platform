@@ -30,8 +30,8 @@ spring:
   boot:
     admin:
       ui:
-        title: '[jsk][@profiles.active@]服务状态监控'
-        brand: '<img src="assets/img/icon-spring-boot-admin.svg"><span>云平台状态监控</span>'
+        title: '[@profiles.active@]服务状态监控'
+        brand: '<img src="assets/img/icon-spring-boot-admin.svg"><span>云平台服务监控</span>'
       notify:
         mail:
           enabled: false  #关闭admin自带的邮件通知

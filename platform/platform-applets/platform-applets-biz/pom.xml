@@ -8,8 +8,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    
+    <name>platform-applets</name>
     <artifactId>platform-applets-biz</artifactId>
+    <description>小程序服务</description>
     <dependencies>
         <dependency>
             <groupId>org.platform</groupId>

@@ -3,6 +3,7 @@ package com.platform.cloud;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.retry.annotation.EnableRetry;
 
@@ -11,9 +12,10 @@ import org.springframework.retry.annotation.EnableRetry;
  * 创建人:pmc
  * 描述:
  */
-@MapperScan(basePackages = "com.platform.cloud.*.mapper")
 @EnableRetry
-@EnableFeignClients()
+@EnableFeignClients
+@EnableDiscoveryClient
+@MapperScan(basePackages = "com.platform.cloud.*.mapper")
 @SpringCloudApplication
 public class UserApplication{
     public static void main(String[] args){
