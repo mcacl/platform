@@ -58,12 +58,12 @@ gateway:
   #开启链路追踪 默认开启
   trace:
     enable: true
-#logging:
-#  file:
-#    name: debug.log
-#    path: platform/logs/${spring.application.name}
-#  level:
-#    "com.platform.cloud": debug
+logging:
+  file:
+    name: debug.log
+    path: platform/logs/${spring.application.name}
+  level:
+    "com.platform.cloud": debug
 #knife4j:
 #  enableAggregation: true
 #  nacos:
