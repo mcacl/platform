@@ -12,7 +12,7 @@ spring:
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
   kafka:
-    bootstrap-servers: localhost:2181
+    bootstrap-servers: localhost:5181
 message:
   sms:
     #短信签名
