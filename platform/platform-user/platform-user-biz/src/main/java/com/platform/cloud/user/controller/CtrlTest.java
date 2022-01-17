@@ -1,10 +1,13 @@
 package com.platform.cloud.user.controller;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.platform.cloud.common.core.aspect.notes.Notes;
 import com.platform.cloud.common.core.entity.PTResponse;
-import com.platform.cloud.common.data.PTPage;
+import com.platform.cloud.common.data.dto.PTPage;
+import com.platform.cloud.user.dto.DtoNumberPlatformUser;
 import com.platform.cloud.user.model.PlatformUser;
+import com.platform.cloud.user.param.ParamPageUser;
 import com.platform.cloud.user.param.ParamUser;
 import com.platform.cloud.user.service.PlatformUserService;
 import io.swagger.annotations.Api;
@@ -32,9 +35,16 @@ public class CtrlTest{
     @Notes
     @ApiOperation("用户列表")
     @PostMapping("pagePlatformUser")
-    public PTResponse<PTPage<PlatformUser>> pagePlatformUser(@RequestBody ParamUser param){
-        var res = userService.page(param.buildPage(),new LambdaQueryWrapper<PlatformUser>().like(StringUtils.isNotEmpty(param.getName()),PlatformUser::getName,param.getName()));
-        return PTResponse.data(PTPage.BuildPTPage(res));
+    public PTResponse<PTPage<DtoNumberPlatformUser>> pagePlatformUser(@RequestBody ParamPageUser param){
+        var res = userService.page(param.buildPage(),new LambdaQueryWrapper<PlatformUser>().like(StringUtils.isNotEmpty(param.getName()),PlatformUser::getName,param.getName()).like(StringUtils.isNotBlank(param.getNickName()),PlatformUser::getNickName,param.getNickName()).like(StringUtils.isNotBlank(param.getPhone()),PlatformUser::getPhone,param.getPhone()).eq(ObjectUtil.isNotNull(param.getSex()),PlatformUser::getSex,param.getSex()));
+        return PTResponse.data(PTPage.BuildPTPage(res,DtoNumberPlatformUser.class));
     }
 
+    @Notes
+    @ApiOperation("单个用户")
+    @PostMapping("getPlatformUser")
+    public PTResponse<PlatformUser> getPlatformUser(@RequestBody ParamUser param){
+        var res = userService.getOne(new LambdaQueryWrapper<PlatformUser>().eq(StringUtils.isNotBlank(param.getId()),PlatformUser::getId,param.getId()).eq(StringUtils.isNotBlank(param.getIdCard()),PlatformUser::getIdCard,param.getIdCard()).eq(StringUtils.isNotBlank(param.getPhone()),PlatformUser::getPhone,param.getPhone()),false);
+        return PTResponse.data(res);
+    }
 }

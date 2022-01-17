@@ -1,4 +1,4 @@
-package com.platform.cloud.common.core.entity.base;
+package com.platform.cloud.common.core.entity.base.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -9,7 +9,7 @@ import lombok.Data;
  * 描述:基础键值实体
  */
 @Data
-public class BaseKeyValue{
+public class BaseDtoKeyValue{
     @ApiModelProperty(value = "键Long")
     private Long key;
     @ApiModelProperty("键String")
@@ -17,20 +17,20 @@ public class BaseKeyValue{
     @ApiModelProperty("值")
     private String name;
 
-    public BaseKeyValue(){
+    public BaseDtoKeyValue(){
     }
 
-    public BaseKeyValue(Long key,String name){
+    public BaseDtoKeyValue(Long key,String name){
         this.key = key;
         this.name = name;
     }
 
-    public BaseKeyValue(String code,String name){
+    public BaseDtoKeyValue(String code,String name){
         this.code = code;
         this.name = name;
     }
 
-    public BaseKeyValue(Long key,String code,String name){
+    public BaseDtoKeyValue(Long key,String code,String name){
         this.key = key;
         this.code = code;
         this.name = name;

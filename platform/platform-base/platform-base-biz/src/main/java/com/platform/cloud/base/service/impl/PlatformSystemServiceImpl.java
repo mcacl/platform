@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.platform.cloud.base.mapper.PlatformSystemMapper;
 import com.platform.cloud.base.model.PlatformSystem;
 import com.platform.cloud.base.service.PlatformSystemService;
-import com.platform.cloud.common.core.entity.base.BaseParam;
+import com.platform.cloud.common.core.entity.base.param.BaseParam;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

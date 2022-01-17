@@ -1,6 +1,5 @@
 package com.platform.cloud.user.param;
 
-import com.platform.cloud.common.data.PTPageAdapt;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -10,17 +9,14 @@ import lombok.Data;
  * 描述:
  */
 @Data
-public class ParamUser extends PTPageAdapt{
-    @ApiModelProperty(value = "姓名")
-    private String name;
-    @ApiModelProperty(value = "昵称")
-    private String nickName;
-
-    /** 性别 */
-    @ApiModelProperty(value = "性别")
-    private Integer sex;
+public class ParamUser{
+    private String id;
 
     /** 电话 */
     @ApiModelProperty(value = "电话")
     private String phone;
+    /** 身份证 */
+    @ApiModelProperty(value = "身份证")
+    private String idCard;
+
 }

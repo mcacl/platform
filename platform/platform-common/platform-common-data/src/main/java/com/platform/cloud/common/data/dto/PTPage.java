@@ -1,4 +1,4 @@
-package com.platform.cloud.common.data;
+package com.platform.cloud.common.data.dto;
 
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

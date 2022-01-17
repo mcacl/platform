@@ -4,7 +4,7 @@ import com.platform.cloud.base.model.PlatformSystem;
 import com.platform.cloud.base.service.PlatformSystemService;
 import com.platform.cloud.common.core.aspect.notes.Notes;
 import com.platform.cloud.common.core.entity.PTResponse;
-import com.platform.cloud.common.core.entity.base.BaseParam;
+import com.platform.cloud.common.core.entity.base.param.BaseParam;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

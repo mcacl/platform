@@ -2,7 +2,7 @@ package com.platform.cloud.base.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.platform.cloud.base.model.PlatformSystem;
-import com.platform.cloud.common.core.entity.base.BaseParam;
+import com.platform.cloud.common.core.entity.base.param.BaseParam;
 
 import java.util.List;
 

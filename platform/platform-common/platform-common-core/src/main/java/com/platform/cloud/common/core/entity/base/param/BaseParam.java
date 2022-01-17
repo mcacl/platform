@@ -1,9 +1,7 @@
-package com.platform.cloud.common.core.entity.base;
+package com.platform.cloud.common.core.entity.base.param;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-
-import javax.validation.constraints.NotBlank;
 
 /**
  * 创建时间:2021/11/13
@@ -12,7 +10,7 @@ import javax.validation.constraints.NotBlank;
  */
 @Data
 public class BaseParam{
-    @NotBlank(message = "关键值不能空")
+    /** 查询关键字 */
     @ApiModelProperty(value = "关键值", required = true)
     private String key;
 }
