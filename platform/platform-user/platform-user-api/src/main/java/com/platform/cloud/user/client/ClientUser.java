@@ -3,7 +3,8 @@ package com.platform.cloud.user.client;
 import com.platform.cloud.common.core.entity.PTResponse;
 import com.platform.cloud.common.core.enums.EnumApplications;
 import com.platform.cloud.common.data.dto.PTPage;
-import com.platform.cloud.user.dto.DtoNumberPlatformUser;
+import com.platform.cloud.user.dto.DtoPlatformUser;
+import com.platform.cloud.user.param.ParamPageUser;
 import com.platform.cloud.user.param.ParamUser;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,5 +21,9 @@ public interface ClientUser{
 
     //"用户分页列表"
     @PostMapping(ROOTURL + "users/pagePlatformUser")
-    public PTResponse<PTPage<DtoNumberPlatformUser>> pagePlatformUser(@RequestBody ParamUser param);
+    public PTResponse<PTPage<DtoPlatformUser>> pagePlatformUser(@RequestBody ParamPageUser param);
+
+    //("单个用户")
+    @PostMapping(ROOTURL + "users/getPlatformUser")
+    public PTResponse<DtoPlatformUser> getPlatformUser(@RequestBody ParamUser param);
 }

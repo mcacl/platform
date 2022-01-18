@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
  * 描述:
  */
 @Data
-public class DtoNumberPlatformUser extends BaseDtoNumberId{
+public class DtoPlatformUser extends BaseDtoNumberId{
     /** 名称 */
     @ApiModelProperty(value = "名称", required = true)
     private String name;

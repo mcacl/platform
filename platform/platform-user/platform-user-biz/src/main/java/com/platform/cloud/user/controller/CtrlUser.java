@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.platform.cloud.common.core.aspect.notes.Notes;
 import com.platform.cloud.common.core.entity.PTResponse;
 import com.platform.cloud.common.data.dto.PTPage;
-import com.platform.cloud.user.dto.DtoNumberPlatformUser;
+import com.platform.cloud.user.dto.DtoPlatformUser;
 import com.platform.cloud.user.model.PlatformUser;
 import com.platform.cloud.user.param.ParamPageUser;
 import com.platform.cloud.user.param.ParamUser;
@@ -27,17 +27,17 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("users")
-@Api(tags = {"测试类"})
-public class CtrlTest{
+@Api(tags = {"用户"})
+public class CtrlUser{
     @Autowired
     private PlatformUserService userService;
 
     @Notes
     @ApiOperation("用户列表")
     @PostMapping("pagePlatformUser")
-    public PTResponse<PTPage<DtoNumberPlatformUser>> pagePlatformUser(@RequestBody ParamPageUser param){
+    public PTResponse<PTPage<DtoPlatformUser>> pagePlatformUser(@RequestBody ParamPageUser param){
         var res = userService.page(param.buildPage(),new LambdaQueryWrapper<PlatformUser>().like(StringUtils.isNotEmpty(param.getName()),PlatformUser::getName,param.getName()).like(StringUtils.isNotBlank(param.getNickName()),PlatformUser::getNickName,param.getNickName()).like(StringUtils.isNotBlank(param.getPhone()),PlatformUser::getPhone,param.getPhone()).eq(ObjectUtil.isNotNull(param.getSex()),PlatformUser::getSex,param.getSex()));
-        return PTResponse.data(PTPage.BuildPTPage(res,DtoNumberPlatformUser.class));
+        return PTResponse.data(PTPage.BuildPTPage(res,DtoPlatformUser.class));
     }
 
     @Notes

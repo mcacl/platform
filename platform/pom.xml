@@ -17,6 +17,7 @@
         <module>platform-base</module>
         <module>platform-monitor</module>
         <module>platform-message</module>
+        <module>platform-portal</module>
     </modules>
     <properties>
         <project.common.config>common</project.common.config>

@@ -2,7 +2,8 @@ package com.platform.cloud.user.client;
 
 import com.platform.cloud.common.core.entity.PTResponse;
 import com.platform.cloud.common.data.dto.PTPage;
-import com.platform.cloud.user.dto.DtoNumberPlatformUser;
+import com.platform.cloud.user.dto.DtoPlatformUser;
+import com.platform.cloud.user.param.ParamPageUser;
 import com.platform.cloud.user.param.ParamUser;
 
 /**
@@ -18,7 +19,12 @@ public class FallbackUser implements ClientUser{
     }
 
     @Override
-    public PTResponse<PTPage<DtoNumberPlatformUser>> pagePlatformUser(ParamUser param){
+    public PTResponse<PTPage<DtoPlatformUser>> pagePlatformUser(ParamPageUser param){
+        return PTResponse.fallBackfailed();
+    }
+
+    @Override
+    public PTResponse<DtoPlatformUser> getPlatformUser(ParamUser param){
         return PTResponse.fallBackfailed();
     }
 }
