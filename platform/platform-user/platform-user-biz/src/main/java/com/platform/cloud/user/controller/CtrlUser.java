@@ -1,7 +1,6 @@
 package com.platform.cloud.user.controller;
 
-import cn.hutool.core.util.ObjectUtil;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.platform.cloud.common.core.aspect.notes.Notes;
 import com.platform.cloud.common.core.entity.PTResponse;
 import com.platform.cloud.common.data.dto.PTPage;
@@ -12,8 +11,6 @@ import com.platform.cloud.user.param.ParamUser;
 import com.platform.cloud.user.service.PlatformUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.var;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,7 +33,7 @@ public class CtrlUser{
     @ApiOperation("用户列表")
     @PostMapping("pagePlatformUser")
     public PTResponse<PTPage<DtoPlatformUser>> pagePlatformUser(@RequestBody ParamPageUser param){
-        var res = userService.page(param.buildPage(),new LambdaQueryWrapper<PlatformUser>().like(StringUtils.isNotEmpty(param.getName()),PlatformUser::getName,param.getName()).like(StringUtils.isNotBlank(param.getNickName()),PlatformUser::getNickName,param.getNickName()).like(StringUtils.isNotBlank(param.getPhone()),PlatformUser::getPhone,param.getPhone()).eq(ObjectUtil.isNotNull(param.getSex()),PlatformUser::getSex,param.getSex()));
+        Page<PlatformUser> res = userService.pagePlatformUser(param);
         return PTResponse.data(PTPage.BuildPTPage(res,DtoPlatformUser.class));
     }
 
@@ -44,7 +41,7 @@ public class CtrlUser{
     @ApiOperation("单个用户")
     @PostMapping("getPlatformUser")
     public PTResponse<PlatformUser> getPlatformUser(@RequestBody ParamUser param){
-        var res = userService.getOne(new LambdaQueryWrapper<PlatformUser>().eq(StringUtils.isNotBlank(param.getId()),PlatformUser::getId,param.getId()).eq(StringUtils.isNotBlank(param.getIdCard()),PlatformUser::getIdCard,param.getIdCard()).eq(StringUtils.isNotBlank(param.getPhone()),PlatformUser::getPhone,param.getPhone()),false);
+        PlatformUser res = userService.getPlatformUser(param);
         return PTResponse.data(res);
     }
 }

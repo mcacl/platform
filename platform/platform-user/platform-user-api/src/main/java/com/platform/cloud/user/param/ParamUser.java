@@ -18,5 +18,14 @@ public class ParamUser{
     /** 身份证 */
     @ApiModelProperty(value = "身份证")
     private String idCard;
+    /** 账号 */
+    @ApiModelProperty(value = "登录名", required = true)
+    private String loginName;
 
+    public ParamUser(){
+    }
+
+    public ParamUser(String loginName){
+        this.loginName = loginName;
+    }
 }
