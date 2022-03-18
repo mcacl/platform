@@ -1,9 +1,10 @@
 package com.platform.cloud.base.client;
 
-import com.platform.cloud.base.model.SysDictionary;
-import com.platform.cloud.base.model.SysRegion;
+import com.platform.cloud.base.dto.DtoSysDictionary;
+import com.platform.cloud.base.dto.DtoSysRegion;
 import com.platform.cloud.base.param.ParamQueryDic;
 import com.platform.cloud.base.param.ParamQueryRegion;
+import com.platform.cloud.base.param.ParamSysDictionary;
 import com.platform.cloud.common.core.entity.PTResponse;
 
 import java.util.List;
@@ -21,17 +22,17 @@ public class FallBackDictionary implements ClientDictionary{
     }
 
     @Override
-    public PTResponse<Boolean> addDictionary(SysDictionary param){
+    public PTResponse<Boolean> addDictionary(ParamSysDictionary param){
         return PTResponse.fallBackfailed();
     }
 
     @Override
-    public PTResponse<List<SysDictionary>> queryDictionary(ParamQueryDic param){
+    public PTResponse<List<DtoSysDictionary>> queryDictionaryTree(ParamQueryDic param){
         return PTResponse.fallBackfailed();
     }
 
     @Override
-    public PTResponse<List<SysRegion>> queryRegion(ParamQueryRegion param){
+    public PTResponse<List<DtoSysRegion>> queryRegion(ParamQueryRegion param){
         return PTResponse.fallBackfailed();
     }
 }

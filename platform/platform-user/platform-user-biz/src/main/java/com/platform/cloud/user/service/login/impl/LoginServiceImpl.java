@@ -23,7 +23,7 @@ public class LoginServiceImpl implements LoginService{
     public DtoLoginResponse loginAccount(ParamLoginAccount param){
         ParamUser paramUser = new ParamUser(param.getAct());
         PlatformUser user = userService.getPlatformUser(paramUser);
-
-        return null;
+        DtoLoginResponse response = new DtoLoginResponse();
+        return response;
     }
 }

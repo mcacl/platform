@@ -1,6 +1,5 @@
-package com.platform.cloud.base.model;
+package com.platform.cloud.base.dto;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.platform.cloud.common.core.entity.base.BaseDelEntityAutoId;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -8,6 +7,7 @@ import lombok.Data;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -15,7 +15,7 @@ import java.util.List;
  * @TableName sys_dictionary
  */
 @Data
-public class SysDictionary extends BaseDelEntityAutoId implements Serializable{
+public class DtoSysDictionary extends BaseDelEntityAutoId implements Serializable{
 
     /** 父节点id */
     @ApiModelProperty(value = "父节点id")
@@ -53,7 +53,6 @@ public class SysDictionary extends BaseDelEntityAutoId implements Serializable{
     @ApiModelProperty(value = "所属系统", required = true)
     private Long belongSystem;
 
-    @TableField(exist = false)
     @ApiModelProperty("子节点 不传参数")
-    private List<SysDictionary> children;
+    private List<DtoSysDictionary> children = Collections.emptyList();
 }

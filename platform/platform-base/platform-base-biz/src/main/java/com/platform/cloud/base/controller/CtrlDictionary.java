@@ -1,9 +1,10 @@
 package com.platform.cloud.base.controller;
 
-import com.platform.cloud.base.model.SysDictionary;
+import com.platform.cloud.base.dto.DtoSysDictionary;
 import com.platform.cloud.base.model.SysRegion;
 import com.platform.cloud.base.param.ParamQueryDic;
 import com.platform.cloud.base.param.ParamQueryRegion;
+import com.platform.cloud.base.param.ParamSysDictionary;
 import com.platform.cloud.base.service.SysDictionaryService;
 import com.platform.cloud.base.service.SysRegionService;
 import com.platform.cloud.common.core.aspect.notes.Notes;
@@ -36,15 +37,15 @@ public class CtrlDictionary{
     @Notes
     @ApiOperation("字典新增、修改")
     @PostMapping("doDictionary")
-    public PTResponse<Boolean> doDictionary(@RequestBody @Validated SysDictionary param){
+    public PTResponse<Boolean> doDictionary(@RequestBody @Validated ParamSysDictionary param){
         return PTResponse.data(dictionaryService.doDictionary(param));
     }
 
     @Notes
-    @ApiOperation("字典查询")
-    @PostMapping("queryDictionary")
-    public PTResponse<List<SysDictionary>> queryDictionary(@RequestBody @Validated ParamQueryDic param){
-        return PTResponse.data(dictionaryService.queryDictionary(param));
+    @ApiOperation("字典树查询")
+    @PostMapping("queryDictionaryTree")
+    public PTResponse<DtoSysDictionary> queryDictionaryTree(@RequestBody @Validated ParamQueryDic param){
+        return PTResponse.data(dictionaryService.queryDictionaryTree(param));
     }
 
     @Notes

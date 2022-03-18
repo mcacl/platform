@@ -5,4 +5,4 @@ package com.platform.cloud.portal.vo;
  * 创建人:pmc
  * 描述:
  */
-public class vo{}
+public class dto{}

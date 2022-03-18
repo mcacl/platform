@@ -10,4 +10,17 @@
         navigation,sort,belong_system,
         is_del,create_time,update_time
     </sql>
+    <select id="queryDicCode" resultType="com.platform.cloud.base.dto.DtoSysDictionary">
+        select *
+        from sys_dictionary
+        where is_del = 0
+          and code = #{code}
+    </select>
+    <select id="queryDictionaryTree" resultType="com.platform.cloud.base.dto.DtoSysDictionary">
+        select *
+        from sys_dictionary
+        where is_del = 0
+          and instr(navigation, #{id}) > 0
+    </select>
+
 </mapper>

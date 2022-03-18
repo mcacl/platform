@@ -4,7 +4,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
-import java.util.Set;
 
 /**
  * 创建时间:2021/11/13
@@ -14,8 +13,8 @@ import java.util.Set;
 @Data
 public class ParamQueryDic{
     @NotNull
-    @ApiModelProperty(value = "父级id")
-    private Set<Long> pids;
+    @ApiModelProperty(value = "id")
+    private Long code;
     @ApiModelProperty(value = "是否查询子节点", required = true)
-    private boolean includeChildren = true;
+    private boolean includeChildren = false;
 }
